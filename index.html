@@ -2,62 +2,103 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gia Sư AI - Học Tập Miễn Phí</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Cấm cache để luôn cập nhật -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <title>Hello Kitty Gia Sư</title>
+    <!-- Icon Hello Kitty (Trắng - Hồng) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22white%22 stroke=%22pink%22 stroke-width=%225%22/><circle cx=%2230%22 cy=%2240%22 r=%226%22 fill=%22black%22/><circle cx=%2270%22 cy=%2240%22 r=%226%22 fill=%22black%22/><ellipse cx=%2250%22 cy=%2260%22 rx=%228%22 ry=%225%22 fill=%22yellow%22/><path d=%22M60 20 L85 10 L75 35 Z%22 fill=%22hotpink%22/></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22white%22 stroke=%22pink%22 stroke-width=%225%22/><circle cx=%2230%22 cy=%2240%22 r=%226%22 fill=%22black%22/><circle cx=%2270%22 cy=%2240%22 r=%226%22 fill=%22black%22/><ellipse cx=%2250%22 cy=%2260%22 rx=%228%22 ry=%225%22 fill=%22yellow%22/><path d=%22M60 20 L85 10 L75 35 Z%22 fill=%22hotpink%22/></svg>">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#FFC0CB">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 h-screen flex flex-col justify-between font-sans">
-    <div class="bg-blue-600 text-white p-4 shadow-md sticky top-0 z-50">
-        <h1 class="text-lg font-bold text-center mb-2">🧑‍🏫 GIA SƯ ẢO AI TOÀN DIỆN</h1>
-        <div class="max-w-md mx-auto mb-3">
-            <input id="apiKeyInput" type="password" placeholder="Dán mã API Gemini vào đây..." class="w-full p-2 text-xs rounded border text-gray-800 focus:outline-none shadow-inner" onchange="saveKey()">
-        </div>
-        <div class="flex gap-2 justify-center max-w-md mx-auto">
-            <select id="gradeSelect" class="flex-1 bg-white text-gray-800 p-2 rounded-md text-sm font-semibold shadow">
-                <option value="Lớp 12" selected>Lớp 12</option><option value="Lớp 11">Lớp 11</option><option value="Lớp 10">Lớp 10</option>
-                <option value="Lớp 9">Lớp 9</option><option value="Lớp 8">Lớp 8</option><option value="Lớp 7">Lớp 7</option>
-                <option value="Lớp 6">Lớp 6</option><option value="Lớp 5">Lớp 5</option>
-            </select>
-            <select id="subjectSelect" class="flex-1 bg-white text-gray-800 p-2 rounded-md text-sm font-semibold shadow">
-                <option value="Toán Học">Toán Học</option><option value="Ngữ Văn">Văn</option>
-                <option value="Tiếng Anh">Tiếng Anh</option><option value="Vật Lý">Lý</option>
-            </select>
+<body class="bg-pink-50 h-screen flex flex-col justify-between font-sans select-none">
+
+    <!-- Tiêu đề Hello Kitty -->
+    <div class="bg-pink-200 text-pink-700 p-4 shadow-md sticky top-0 z-50 rounded-b-3xl border-b-2 border-pink-300">
+        <h1 class="text-lg font-bold text-center">🎀 Hello Kitty Gia Sư</h1>
+        <div class="max-w-md mx-auto mt-2">
+            <input id="apiKeyInput" type="password" placeholder="Dán mã API..." class="w-full p-2 text-xs rounded-full border border-pink-300 text-gray-700 shadow-inner focus:ring-2 focus:ring-pink-300" onchange="saveKey()">
         </div>
     </div>
+
+    <!-- Khung Chat -->
     <div id="chatBox" class="flex-1 p-4 overflow-y-auto space-y-4 max-w-2xl w-full mx-auto">
-        <div class="bg-blue-100 text-blue-800 p-3 rounded-lg max-w-[85%] shadow-sm text-sm">Chào em! Hãy nhập API Key và hỏi bài nhé.</div>
-    </div>
-    <div class="bg-white p-3 border-t sticky bottom-0">
-        <div class="max-w-2xl mx-auto flex gap-2">
-            <input id="userInput" type="text" placeholder="Nhập câu hỏi..." class="flex-1 border rounded-lg px-4 py-2 text-sm focus:outline-none shadow-sm">
-            <button id="sendBtn" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-bold text-sm">GỬI</button>
+        <div class="bg-white p-4 rounded-3xl shadow-lg max-w-[85%] text-sm text-gray-700 border border-pink-200">
+            Meow! Chào bạn, tớ là Hello Kitty. Hãy gửi bài tập (kèm ảnh sơ đồ) để tớ giúp cậu học thật giỏi nhé! 🎀
         </div>
     </div>
+
+    <!-- Thanh nhập liệu -->
+    <div class="bg-white p-3 border-t border-pink-100 sticky bottom-0 z-40">
+        <div id="imagePreview" class="max-w-2xl mx-auto flex gap-2 mb-2 hidden"></div>
+        <div class="max-w-2xl mx-auto flex items-center gap-2">
+            <label for="fileInput" class="bg-pink-100 p-3 rounded-full cursor-pointer hover:bg-pink-200 text-lg">📷</label>
+            <input id="fileInput" type="file" accept="image/*" class="hidden">
+            <button id="micBtn" class="bg-pink-100 p-3 rounded-full hover:bg-pink-200 text-lg">🎤</button>
+            <input id="userInput" type="text" placeholder="Nhập câu hỏi..." class="flex-1 border-2 border-pink-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-pink-400">
+            <button id="sendBtn" class="bg-pink-400 text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-pink-500 shadow-md">GỬI</button>
+        </div>
+    </div>
+
     <script>
         const chatBox = document.getElementById('chatBox');
         const userInput = document.getElementById('userInput');
         const sendBtn = document.getElementById('sendBtn');
         const apiKeyInput = document.getElementById('apiKeyInput');
+        const fileInput = document.getElementById('fileInput');
+        const imagePreview = document.getElementById('imagePreview');
+        const micBtn = document.getElementById('micBtn');
+
+        let base64Image = null; let imageMimeType = null;
         window.onload = () => { if(localStorage.getItem('user_gemini_key')) apiKeyInput.value = localStorage.getItem('user_gemini_key'); }
         function saveKey() { localStorage.setItem('user_gemini_key', apiKeyInput.value.trim()); }
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                imageMimeType = file.type;
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    base64Image = event.target.result.split(',')[1];
+                    imagePreview.innerHTML = `<img src="${event.target.result}" class="h-12 w-12 rounded-lg border-2 border-pink-300">`;
+                    imagePreview.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        if ('webkitSpeechRecognition' in window) {
+            const recognition = new webkitSpeechRecognition();
+            recognition.lang = 'vi-VN';
+            recognition.onresult = (e) => { userInput.value += e.results[0][0].transcript; };
+            micBtn.addEventListener('click', () => { recognition.start(); });
+        }
+
         sendBtn.addEventListener('click', async () => {
             const apiKey = apiKeyInput.value.trim();
-            if (!apiKey) { alert("Vui lòng nhập API Key!"); return; }
+            if (!apiKey) { alert("Chưa có API key nè!"); return; }
             const text = userInput.value.trim();
-            if (!text) return;
-            const msgDiv = document.createElement('div'); msgDiv.className = "bg-green-500 text-white p-3 rounded-lg ml-auto max-w-[85%] text-sm"; msgDiv.innerText = text; chatBox.appendChild(msgDiv); userInput.value = '';
+            if (!text && !base64Image) return;
+
+            chatBox.innerHTML += `<div class="bg-pink-400 text-white p-3 rounded-3xl ml-auto max-w-[85%] text-sm shadow-sm">${text}</div>`;
+            userInput.value = ''; imagePreview.classList.add('hidden'); imagePreview.innerHTML = '';
+            
             try {
-                // ĐÃ CẬP NHẬT: Thay thế mô hình cũ bằng gemini-2.5-flash mới nhất
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent`, {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
-                    body: JSON.stringify({ contents: [{ parts: [{ text: text }] }] })
+                    body: JSON.stringify({ contents: [{ parts: [{ text: text + " (Giọng điệu dễ thương, nhẹ nhàng giúp học sinh học tập)" }] }] })
                 });
                 const data = await response.json();
-                const aiDiv = document.createElement('div'); aiDiv.className = "bg-white p-3 rounded-lg border max-w-[85%] text-sm";
-                aiDiv.innerText = data.error ? "Lỗi: " + data.error.message : data.candidates[0].content.parts[0].text;
-                chatBox.appendChild(aiDiv); chatBox.scrollTop = chatBox.scrollHeight;
-            } catch (e) { alert("Lỗi kết nối"); }
+                chatBox.innerHTML += `<div class="bg-white p-4 rounded-3xl shadow-lg max-w-[85%] text-sm border border-pink-200">${data.candidates[0].content.parts[0].text}</div>`;
+            } catch (e) { alert("Meow! Có lỗi rồi!"); }
+            chatBox.scrollTop = chatBox.scrollHeight;
         });
     </script>
 </body>
