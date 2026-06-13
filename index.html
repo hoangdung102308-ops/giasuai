@@ -265,7 +265,6 @@
             const apiKey = apiKeyInput.value.trim();
             if (!apiKey) { openApiModal(); return; }
             
-            // Ép hệ thống lưu lại khóa ngay lập tức khi bấm nút gửi bài
             saveApiKey();
 
             const text = userInput.value.trim();
@@ -295,5 +294,58 @@
             const systemPrompt = `Bạn là cô giáo tên là Xuân Mai, giảng dạy môn ${subject} cho lớp ${grade}. Xưng "cô" và gọi học sinh là "${pronoun}". Giải bài tập ngắn gọn, chính xác, bám sát sách giáo khoa. Trình bày rõ phương pháp và lời giải chi tiết.`;
 
             try {
-                const contentsParts = [{ text: `Đề bài: ${tempText || "Giải bài tập trong ảnh dựa trên môn học cấu hình."}` }];
-                if (tem
+                const contentsParts = [];
+                if (tempText) {
+                    contentsParts.push({ text: `Đề bài: ${tempText}` });
+                } else {
+                    contentsParts.push({ text: "Hãy giải bài tập trong ảnh dựa trên môn học cấu hình." });
+                }
+
+                if (tempBase64) {
+                    contentsParts.push({
+                        inlineData: {
+                            mimeType: tempMime,
+                            data: tempBase64
+                        }
+                    });
+                }
+
+                const response = await fetch(`${AI_CONFIG.API_URL}/${AI_CONFIG.MODEL_NAME}:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: contentsParts }],
+                        systemInstruction: { parts: [{ text: systemPrompt }] }
+                    })
+                });
+
+                const data = await response.json();
+                if (chatBox.contains(loadingDiv)) chatBox.removeChild(loadingDiv);
+
+                const aiMsgDiv = document.createElement('div');
+                aiMsgDiv.className = "bg-white p-4 rounded-2xl rounded-tl-none shadow-sm text-sm border-l-4 border-teal-500 leading-relaxed max-w-[85%]";
+                
+                if (data.candidates && data.candidates[0].content && data.candidates[0].content.parts) {
+                    const replyText = data.candidates[0].content.parts[0].text;
+                    aiMsgDiv.innerText = replyText;
+                } else {
+                    aiMsgDiv.className = "bg-rose-50 p-3 rounded-2xl text-xs text-rose-600 shadow-sm border border-rose-100 max-w-[85%]";
+                    aiMsgDiv.innerText = "Cô gặp chút sự cố kết nối, em kiểm tra lại mã API hoặc thử lại nhé!";
+                    console.error("Lỗi API:", data);
+                }
+                chatBox.appendChild(aiMsgDiv);
+                tabChatView.scrollTop = tabChatView.scrollHeight;
+
+            } catch (error) {
+                if (chatBox.contains(loadingDiv)) chatBox.removeChild(loadingDiv);
+                const errDiv = document.createElement('div');
+                errDiv.className = "bg-rose-50 p-3 rounded-2xl text-xs text-rose-600 shadow-sm border border-rose-100 max-w-[85%]";
+                errDiv.innerText = "Đã xảy ra lỗi hệ thống khi kết nối với cô Xuân Mai.";
+                chatBox.appendChild(errDiv);
+                console.error("Lỗi kết nối:", error);
+            }
+        });
+    </script>
+</body>
+</html>
+
