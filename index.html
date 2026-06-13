@@ -3,76 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    
     <title>Hello Kitty Gia Sư</title>
-
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ffdfe5' rx='20'/><circle cx='50' cy='55' r='33' fill='white' stroke='%23f472b6' stroke-width='4'/><circle cx='38' cy='52' r='4' fill='black'/><circle cx='62' cy='52' r='4' fill='black'/><ellipse cx='50' cy='59' rx='5' ry='3.5' fill='yellow'/><path d='M22 48 L10 46 M22 56 L8 58 M78 48 L90 46 M78 56 L92 58' stroke='black' stroke-width='2.5' stroke-linecap='round'/><path d='M65 24 C58 24 54 29 54 34 C54 39 64 44 74 39 C79 34 74 24 65 24 Z' fill='%23f472b6'/><circle cx='65' cy='32' r='4' fill='white'/></svg>">
-    <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ffdfe5' rx='20'/><circle cx='50' cy='55' r='33' fill='white' stroke='%23f472b6' stroke-width='4'/><circle cx='38' cy='52' r='4' fill='black'/><circle cx='62' cy='52' r='4' fill='black'/><ellipse cx='50' cy='59' rx='5' ry='3.5' fill='yellow'/><path d='M22 48 L10 46 M22 56 L8 58 M78 48 L90 46 M78 56 L92 58' stroke='black' stroke-width='2.5' stroke-linecap='round'/><path d='M65 24 C58 24 54 29 54 34 C54 39 64 44 74 39 C79 34 74 24 65 24 Z' fill='%23f472b6'/><circle cx='65' cy='32' r='4' fill='white'/></svg>">
-    <link rel="manifest" href='data:application/json,{"name":"Hello Kitty Gia Sư","short_name":"KittyGiaSu","start_url":".","display":"standalone","background_color":"#fff5f7","theme_color":"#f472b6","icons":[{"src":"data:image/svg+xml;utf8,<svg xmlns=\x22http://www.w3.org/2000/svg\x22 viewBox=\x220 0 100 100\x22><rect width=\x22100\x22 height=\x22100\x22 fill=\x22%23ffdfe5\x22 rx=\x2220\x22/><circle cx=\x2250\x22 cy=\x2255\x22 r=\x2233\x22 fill=\x22white\x22 stroke=\x22%23f472b6\x22 stroke-width=\x224\x22/><circle cx=\x2238\x22 cy=\x2252\x22 r=\x224\x22 fill=\x22black\x22/><circle cx=\x2262\x22 cy=\x2252\x22 r=\x224\x22 fill=\x22black\x22/><ellipse cx=\x2250\x22 cy=\x2258\x22 rx=\x225\x22 ry=\x223.5\x22 fill=\x22yellow\x22/><path d=\x22M22 48 L10 46 M22 56 L8 58 M78 48 L90 46 M78 56 L92 58\x22 stroke=\x22black\x22 stroke-width=\x222.5\x22 stroke-linecap=\x22round\x22/><path d=\x22M65 24 C58 24 54 29 54 34 C54 39 64 44 74 39 C79 34 74 24 65 24 Z\x22 fill=\x22%23f472b6\x22/><circle cx=\x2265\x22 cy=\x2232\x22 r=\x224\x22 fill=\x22white\x22/></svg>","sizes":"192x192","type":"image/svg+xml"}]}' />
-
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href='data:application/json,{"name":"Hello Kitty Gia Sư","short_name":"KittyGiaSu","start_url":".","display":"standalone","background_color":"#fff5f7","theme_color":"#f472b6","icons":[{"src":"https://cdn-icons-png.flaticon.com/512/763/763731.png","sizes":"192x192","type":"image/png"}]}'>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-pink-50 h-screen flex flex-col justify-between font-sans select-none">
+<body class="bg-pink-50 h-screen flex flex-col font-sans select-none">
 
-    <div class="bg-pink-300 text-pink-800 p-4 shadow-md sticky top-0 z-50 rounded-b-3xl border-b-2 border-pink-400">
-        <h1 class="text-lg font-bold text-center mb-2">🎀 HELLO KITTY GIA SƯ AI</h1>
-        
-        <div class="max-w-md mx-auto mb-2">
-            <input id="apiKeyInput" type="password" placeholder="Dán mã API Gemini tại đây..." class="w-full p-2 text-xs rounded-full border border-pink-400 text-gray-800 focus:outline-none shadow-inner" onchange="saveKey()">
-        </div>
-
-        <div class="flex gap-2 justify-center max-w-md mx-auto">
-            <select id="gradeSelect" class="flex-1 bg-white text-pink-600 p-2 rounded-full text-xs font-bold shadow focus:outline-none">
+    <div class="bg-pink-300 text-pink-900 p-4 shadow-md sticky top-0 z-50 rounded-b-2xl border-b-2 border-pink-400">
+        <h1 class="text-md font-bold text-center">🎀 HELLO KITTY GIA SƯ</h1>
+        <input id="apiKeyInput" type="password" placeholder="Dán API Key..." class="w-full mt-2 p-1.5 text-xs rounded-full border border-pink-400 focus:outline-none" onchange="saveKey()">
+        <div class="flex gap-2 mt-2">
+            <select id="gradeSelect" class="flex-1 bg-white p-1.5 rounded-full text-xs font-bold shadow">
                 <option value="Lớp 12" selected>Lớp 12</option>
-                <option value="Lớp 11">Lớp 11</option>
-                <option value="Lớp 10">Lớp 10</option>
-                <option value="Lớp 9">Lớp 9</option>
-                <option value="Lớp 8">Lớp 8</option>
-                <option value="Lớp 7">Lớp 7</option>
-                <option value="Lớp 6">Lớp 6</option>
-                <option value="Lớp 5">Lớp 5</option>
+                <option value="Lớp 11">Lớp 11</option><option value="Lớp 10">Lớp 10</option><option value="Lớp 9">Lớp 9</option>
             </select>
-            <select id="subjectSelect" class="flex-1 bg-white text-pink-600 p-2 rounded-full text-xs font-bold shadow focus:outline-none">
-                <option value="Toán Học">Toán / Hình Học</option>
-                <option value="Ngữ Văn">Ngữ Văn</option>
-                <option value="Tiếng Anh">Tiếng Anh</option>
-                <option value="Vật Lý">Vật Lý / Sơ đồ</option>
-                <option value="Hóa Học">Hóa Học</option>
-                <option value="Sinh Học">Sinh Học</option>
-                <option value="Lịch Sử">Lịch Sử</option>
-                <option value="Địa Lý">Địa Lý</option>
+            <select id="subjectSelect" class="flex-1 bg-white p-1.5 rounded-full text-xs font-bold shadow">
+                <option value="Toán Học">Toán</option><option value="Ngữ Văn">Văn</option><option value="Tiếng Anh">Anh</option>
+                <option value="Vật Lý">Lý</option><option value="Hóa Học">Hóa</option><option value="Sinh Học">Sinh</option>
+                <option value="Lịch Sử">Sử</option><option value="Địa Lý">Địa</option>
             </select>
         </div>
     </div>
 
-    <div id="chatBox" class="flex-1 p-4 overflow-y-auto space-y-4 max-w-2xl w-full mx-auto">
-        <div class="bg-white p-4 rounded-3xl rounded-tl-none shadow-md max-w-[85%] text-sm text-gray-700 border-l-4 border-pink-400">
-            Meow! Hello Kitty Gia Sư xin chào! Tớ đã cập nhật thêm các môn Sinh, Sử, Địa theo yêu cầu của bạn rồi nhé. Gửi bài tập cho tớ nào! 🎀
+    <div id="chatBox" class="flex-1 p-4 overflow-y-auto space-y-4">
+        <div class="bg-white p-3 rounded-2xl shadow-sm text-sm text-gray-700 border-l-4 border-pink-400">
+            Chào bạn! Tớ đã cài đặt chế độ giải bài tập chuẩn form, ngắn gọn, súc tích. Hãy gửi câu hỏi nhé!
         </div>
     </div>
 
-    <div class="bg-white p-3 border-t border-pink-200 sticky bottom-0 z-40 space-y-2">
-        <div id="imagePreview" class="max-w-2xl mx-auto flex gap-2 hidden"></div>
-
-        <div class="max-w-2xl mx-auto flex items-center gap-2">
-            <label for="fileInput" class="bg-pink-100 p-3 rounded-full cursor-pointer hover:bg-pink-200 text-lg shadow-sm" title="Tải sơ đồ, hình vẽ">
-                📷
-            </label>
+    <div class="bg-white p-3 border-t border-pink-200 sticky bottom-0">
+        <div id="imagePreview" class="mb-2 hidden"></div>
+        <div class="flex items-center gap-2">
+            <label for="fileInput" class="bg-pink-100 p-3 rounded-full cursor-pointer">📷</label>
             <input id="fileInput" type="file" accept="image/*" class="hidden">
-
-            <button id="micBtn" class="bg-pink-100 p-3 rounded-full hover:bg-pink-200 text-lg shadow-sm" title="Nói để nhập chữ">
-                🎤
-            </button>
-
-            <input id="userInput" type="text" placeholder="Nhập bài tập hoặc bấm Mic để nói..." class="flex-1 border-2 border-pink-200 rounded-full px-4 py-2.5 text-sm focus:outline-none focus:border-pink-400 shadow-sm">
-            
-            <button id="sendBtn" class="bg-pink-500 text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-pink-600 shadow-md">GỬI</button>
+            <input id="userInput" type="text" placeholder="Nhập bài..." class="flex-1 border rounded-full px-4 py-2 text-sm focus:outline-none">
+            <button id="sendBtn" class="bg-pink-500 text-white px-5 py-2 rounded-full font-bold text-sm">GỬI</button>
         </div>
     </div>
 
@@ -83,12 +49,10 @@
         const apiKeyInput = document.getElementById('apiKeyInput');
         const fileInput = document.getElementById('fileInput');
         const imagePreview = document.getElementById('imagePreview');
-        const micBtn = document.getElementById('micBtn');
         const gradeSelect = document.getElementById('gradeSelect');
         const subjectSelect = document.getElementById('subjectSelect');
 
         let base64Image = null; let imageMimeType = null;
-
         window.onload = () => { if(localStorage.getItem('user_gemini_key')) apiKeyInput.value = localStorage.getItem('user_gemini_key'); }
         function saveKey() { localStorage.setItem('user_gemini_key', apiKeyInput.value.trim()); }
 
@@ -97,82 +61,60 @@
             if (file) {
                 imageMimeType = file.type;
                 const reader = new FileReader();
-                reader.onload = function(event) {
+                reader.onload = (event) => {
                     base64Image = event.target.result.split(',')[1];
-                    imagePreview.innerHTML = `
-                        <div class="relative inline-block mt-1">
-                            <img src="${event.target.result}" class="h-16 w-16 object-cover rounded-xl border-2 border-pink-400">
-                            <button onclick="window.clearImage()" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs font-bold flex items-center justify-center">×</button>
-                        </div>`;
+                    imagePreview.innerHTML = `<img src="${event.target.result}" class="h-12 w-12 rounded-lg">`;
                     imagePreview.classList.remove('hidden');
                 };
                 reader.readAsDataURL(file);
             }
         });
 
-        window.clearImage = function() {
-            base64Image = null; imageMimeType = null; fileInput.value = '';
-            imagePreview.innerHTML = ''; imagePreview.classList.add('hidden');
-        }
-
-        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            const recognition = new SpeechRecognition();
-            recognition.lang = 'vi-VN';
-            recognition.interimResults = false;
-            recognition.onstart = () => { micBtn.innerText = "🛑"; micBtn.classList.add('bg-red-100'); };
-            recognition.onend = () => { micBtn.innerText = "🎤"; micBtn.classList.remove('bg-red-100'); };
-            recognition.onresult = (event) => { userInput.value += event.results[0][0].transcript; };
-            micBtn.addEventListener('click', () => { recognition.start(); });
-        } else { micBtn.style.display = 'none'; }
-
         sendBtn.addEventListener('click', async () => {
             const apiKey = apiKeyInput.value.trim();
-            if (!apiKey) { alert("Bạn ơi, dán mã API Key ở ô phía trên nhé!"); return; }
+            if (!apiKey) { alert("Dán API Key!"); return; }
             const text = userInput.value.trim();
             if (!text && !base64Image) return;
 
-            const userMsgDiv = document.createElement('div');
-            userMsgDiv.className = "bg-pink-400 text-white p-3 rounded-3xl rounded-tr-none ml-auto max-w-[85%] text-sm shadow-sm space-y-2";
-            if(base64Image) userMsgDiv.innerHTML += `<img src="data:${imageMimeType};base64,${base64Image}" class="max-h-40 rounded-xl mb-1">`;
-            if(text) userMsgDiv.innerHTML += `<div>${text}</div>`;
-            chatBox.appendChild(userMsgDiv); chatBox.scrollTop = chatBox.scrollHeight;
+            // Hiển thị user message
+            const userMsg = document.createElement('div');
+            userMsg.className = "bg-pink-400 text-white p-3 rounded-2xl ml-auto text-sm max-w-[80%]";
+            userMsg.innerText = text;
+            chatBox.appendChild(userMsg);
 
+            userInput.value = ''; imagePreview.classList.add('hidden');
             const tempText = text; const tempBase64 = base64Image; const tempMime = imageMimeType;
-            userInput.value = ''; window.clearImage();
+            base64Image = null;
 
-            const loadingDiv = document.createElement('div');
-            loadingDiv.className = "bg-white p-3 rounded-3xl rounded-tl-none max-w-[85%] text-sm italic text-gray-400 shadow-sm border border-pink-100";
-            loadingDiv.innerText = "Hello Kitty đang suy nghĩ bài cho bạn nè...";
-            chatBox.appendChild(loadingDiv); chatBox.scrollTop = chatBox.scrollHeight;
+            const loading = document.createElement('div');
+            loading.className = "text-xs text-gray-400 italic"; loading.innerText = "Đang giải...";
+            chatBox.appendChild(loading);
 
-            const grade = gradeSelect.value; const subject = subjectSelect.value;
-            const systemPrompt = `Bạn là giáo viên Hello Kitty đáng yêu tại Việt Nam giảng dạy trình độ ${grade}, môn ${subject}. Hãy giải thích bằng giọng điệu vô cùng dễ thương, ngọt ngào, dùng các ký tự 🎀, ✨, meow meow. Khi học sinh hỏi bài hoặc gửi sơ đồ, hãy hướng dẫn chi tiết từng bước tư duy một cách sư phạm, bám sát chương trình học tại Việt Nam, không giải hộ ngay lập tức để học sinh tự rèn luyện tư duy.`;
+            // CẤU HÌNH LỆNH HỆ THỐNG MỚI (CHUẨN FORM, GỌN GÀNG)
+            const systemPrompt = `Bạn là gia sư. Khi giải bài tập, BẮT BUỘC tuân thủ định dạng sau:
+            1. Tóm tắt kiến thức (ngắn gọn nhất).
+            2. Các bước giải (dùng số 1, 2, 3.. liệt kê rõ ràng).
+            3. Đáp số cuối cùng.
+            KHÔNG rườm rà, KHÔNG văn mẫu. Đi thẳng vào lời giải. Tối giản các biểu tượng trang trí.`;
 
             try {
-                const contentsParts = [{ text: `${systemPrompt}\n\nBài tập yêu cầu: ${tempText || "Hãy phân tích sơ đồ/hình ảnh này giúp em."}` }];
-                if (tempBase64) contentsParts.push({ inlineData: { mimeType: tempMime, data: tempBase64 } });
+                const parts = [{ text: `${systemPrompt}\n\nBài tập: ${tempText || "Giải bài này"}` }];
+                if (tempBase64) parts.push({ inlineData: { mimeType: tempMime, data: tempBase64 } });
 
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
-                    body: JSON.stringify({ contents: [{ parts: contentsParts }] })
+                    body: JSON.stringify({ contents: [{ parts }] })
                 });
 
                 const data = await response.json();
-                loadingDiv.remove();
+                loading.remove();
                 const aiDiv = document.createElement('div');
-                aiDiv.className = "bg-white p-4 rounded-3xl rounded-tl-none shadow-md max-w-[85%] text-sm border-l-4 border-pink-400 whitespace-pre-line text-gray-700";
-                
-                if (data.error) {
-                    aiDiv.innerText = "Meow! Có chút lỗi: " + data.error.message;
-                } else {
-                    aiDiv.innerText = data.candidates[0].content.parts[0].text;
-                }
-                chatBox.appendChild(aiDiv); chatBox.scrollTop = chatBox.scrollHeight;
-            } catch (e) { loadingDiv.innerText = "Lỗi kết nối mạng rồi bạn ơi!"; }
+                aiDiv.className = "bg-white p-4 rounded-2xl shadow-sm text-sm border-l-4 border-pink-400 whitespace-pre-line text-gray-800";
+                aiDiv.innerText = data.candidates?.[0]?.content?.parts?.[0]?.text || "Có lỗi xảy ra.";
+                chatBox.appendChild(aiDiv);
+            } catch (e) { loading.innerText = "Lỗi kết nối."; }
         });
-        userInput.addEventListener("keypress", (e) => { if (e.key === "Enter") sendBtn.click(); });
     </script>
 </body>
 </html>
