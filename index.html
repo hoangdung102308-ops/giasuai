@@ -22,6 +22,59 @@
         };
         // Lấy năm hiện tại theo thời gian thực
         const CURRENT_YEAR = new Date().getFullYear();
+
+        // 🌐 BẢN ĐỒ ĐƯỜNG LINK VIETJACK TỰ ĐỘNG THEO LỚP VÀ MÔN KHỚP VỚI MENU CHỌN
+        // Bạn hãy copy đường link chuẩn của chuyên mục đó trên Vietjack rồi dán vào giữa các dấu "" tương ứng dưới đây nhé!
+        const VIETJACK_LINKS = {
+            "Lớp 12": {
+                "Toán học / Hình học": "https://khoahoc.vietjack.com/thi-online/bo-de-thi-thpt-quoc-gia-mon-toan-hoc",
+                "Ngữ Văn": "https://khoahoc.vietjack.com/thi-online/bo-de-thi-thpt-quoc-gia-mon-ngu-van",
+                "Tiếng Anh (Ngoại ngữ)": "https://khoahoc.vietjack.com/thi-online/bo-de-thi-thpt-quoc-gia-mon-tieng-anh",
+                "Vật Lý": "https://khoahoc.vietjack.com/thi-online/bo-de-thi-thpt-quoc-gia-mon-vat-ly",
+                "Hóa Học": "https://khoahoc.vietjack.com/thi-online/bo-de-thi-thpt-quoc-gia-mon-hoa-hoc",
+                "Sinh Học": "https://khoahoc.vietjack.com/thi-online/bo-de-thi-thpt-quoc-gia-mon-sinh-hoc",
+                "Lịch Sử": "https://khoahoc.vietjack.com/thi-online/bo-de-thi-thpt-quoc-gia-mon-lich-su",
+                "Địa Lý": "https://khoahoc.vietjack.com/thi-online/bo-de-thi-thpt-quoc-gia-mon-dia-ly"
+            },
+            "Lớp 11": {
+                "Toán học / Hình học": "https://khoahoc.vietjack.com/thi-online/mon-toan-11",
+                "Ngữ Văn": "https://khoahoc.vietjack.com/thi-online/mon-ngu-van-11",
+                "Tiếng Anh (Ngoại ngữ)": "https://khoahoc.vietjack.com/thi-online/mon-tieng-anh-11",
+                "Vật Lý": "https://khoahoc.vietjack.com/thi-online/mon-vat-ly-11",
+                "Hóa Học": "https://khoahoc.vietjack.com/thi-online/mon-hoa-hoc-11",
+                "Sinh Học": "",
+                "Lịch Sử": "",
+                "Địa Lý": ""
+            },
+            "Lớp 10": {
+                "Toán học / Hình học": "https://khoahoc.vietjack.com/thi-online/mon-toan-10",
+                "Ngữ Văn": "https://khoahoc.vietjack.com/thi-online/mon-ngu-van-10",
+                "Tiếng Anh (Ngoại ngữ)": "https://khoahoc.vietjack.com/thi-online/mon-tieng-anh-10",
+                "Vật Lý": "",
+                "Hóa Học": "",
+                "Sinh Học": "",
+                "Lịch Sử": "",
+                "Địa Lý": ""
+            },
+            "Lớp 9": {
+                "Toán học / Hình học": "https://khoahoc.vietjack.com/thi-online/mon-toan-9",
+                "Ngữ Văn": "https://khoahoc.vietjack.com/thi-online/mon-ngu-van-9",
+                "Tiếng Anh (Ngoại ngữ)": "https://khoahoc.vietjack.com/thi-online/mon-tieng-anh-9",
+                "Vật Lý": "",
+                "Hóa Học": "",
+                "Sinh Học": "",
+                "Lịch Sử": "",
+                "Địa Lý": ""
+            },
+            "Lớp 8": { "Toán học / Hình học": "", "Ngữ Văn": "", "Tiếng Anh (Ngoại ngữ)": "", "Vật Lý": "", "Hóa Học": "", "Sinh Học": "", "Lịch Sử": "", "Địa Lý": "" },
+            "Lớp 7": { "Toán học / Hình học": "", "Ngữ Văn": "", "Tiếng Anh (Ngoại ngữ)": "", "Vật Lý": "", "Hóa Học": "", "Sinh Học": "", "Lịch Sử": "", "Địa Lý": "" },
+            "Lớp 6": { "Toán học / Hình học": "", "Ngữ Văn": "", "Tiếng Anh (Ngoại ngữ)": "", "Vật Lý": "", "Hóa Học": "", "Sinh Học": "", "Lịch Sử": "", "Địa Lý": "" },
+            "Lớp 5": { "Toán học / Hình học": "", "Ngữ Văn": "", "Tiếng Anh (Ngoại ngữ)": "", "Vật Lý": "", "Hóa Học": "", "Sinh Học": "", "Lịch Sử": "", "Địa Lý": "" },
+            "Lớp 4": { "Toán học / Hình học": "", "Ngữ Văn": "", "Tiếng Anh (Ngoại ngữ)": "", "Vật Lý": "", "Hóa Học": "", "Sinh Học": "", "Lịch Sử": "", "Địa Lý": "" },
+            "Lớp 3": { "Toán học / Hình học": "", "Ngữ Văn": "", "Tiếng Anh (Ngoại ngữ)": "", "Vật Lý": "", "Hóa Học": "", "Sinh Học": "", "Lịch Sử": "", "Địa Lý": "" },
+            "Lớp 2": { "Toán học / Hình học": "", "Ngữ Văn": "", "Tiếng Anh (Ngoại ngữ)": "", "Vật Lý": "", "Hóa Học": "", "Sinh Học": "", "Lịch Sử": "", "Địa Lý": "" },
+            "Lớp 1": { "Toán học / Hình học": "", "Ngữ Văn": "", "Tiếng Anh (Ngoại ngữ)": "", "Vật Lý": "", "Hóa Học": "", "Sinh Học": "", "Lịch Sử": "", "Địa Lý": "" }
+        };
     </script>
 
     <div class="bg-teal-600 text-white p-3 shadow-md sticky top-0 z-50 rounded-b-2xl border-b border-teal-700">
@@ -67,6 +120,11 @@
         </div>
 
         <div id="tabDeThiView" class="h-full overflow-y-auto p-4 max-w-2xl w-full mx-auto hidden custom-scroll pb-10">
+            
+            <a id="vietjackLinkBtn" href="https://khoahoc.vietjack.com/" target="_blank" class="mb-4 flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white p-3.5 rounded-2xl text-center font-bold text-xs shadow-md hover:from-orange-600 hover:to-amber-600 transition-all transform hover:scale-[1.01]">
+                📝 Làm bài trực tuyến tại đây ↗
+            </a>
+
             <div class="bg-teal-50 p-3 rounded-xl mb-4 border border-teal-100 flex justify-between items-center text-[11px]">
                 <span id="dynamicYearHeader" class="font-semibold text-teal-800">📚 Kho Đề Thi Khảo Sát Đổi Mới Cấu Trúc</span>
             </div>
@@ -178,9 +236,25 @@
             } catch(e) {}
         }
 
+        // HÀM ĐỔI ĐƯỜNG LINK VIETJACK LINH HOẠT THEO LỚP & MÔN ĐANG CHỌN
+        function updateVietjackDynamicLink() {
+            const currentGrade = gradeSelect.value;
+            const currentSubject = subjectSelect.value;
+            const vietjackBtn = document.getElementById('vietjackLinkBtn');
+
+            // Kiểm tra xem lớp và môn này có cấu hình link riêng biệt không
+            if (VIETJACK_LINKS[currentGrade] && VIETJACK_LINKS[currentGrade][currentSubject] && VIETJACK_LINKS[currentGrade][currentSubject] !== "") {
+                vietjackBtn.href = VIETJACK_LINKS[currentGrade][currentSubject];
+            } else {
+                // Nếu lớp/môn đó chưa điền link, tự động trỏ về trang chủ Vietjack để an toàn
+                vietjackBtn.href = "https://khoahoc.vietjack.com/";
+            }
+        }
+
         function onFilterChange() {
             updateWelcomeText();
             renderFilteredExams();
+            updateVietjackDynamicLink(); // Kích hoạt đổi link nút màu cam đồng thời khi thay đổi bộ lọc
         }
 
         function updateWelcomeText() {
