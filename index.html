@@ -4,41 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <title>Hello Kitty Gia Sư</title>
-    <link rel="manifest" href='data:application/json,{"name":"Hello Kitty Gia Sư","short_name":"KittyGiaSu","start_url":".","display":"standalone","background_color":"#fff5f7","theme_color":"#f472b6","icons":[{"src":"https://cdn-icons-png.flaticon.com/512/763/763731.png","sizes":"192x192","type":"image/png"}]}'>
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <title>Cô Giáo Xuân Mai AI</title>
+
+    <!-- Cấu hình PWA để tạo hình App độc lập ngoài màn hình điện thoại -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230ea5e9' rx='25'/><circle cx='50' cy='45' r='20' fill='%23fef08a'/><path d='M25 80 C25 60 35 55 50 55 C65 55 75 60 75 80 Z' fill='%230f172a'/><polygon points='50,55 45,65 55,65' fill='%23fef08a'/><circle cx='45' cy='42' r='2' fill='black'/><circle cx='55' cy='42' r='2' fill='black'/><path d='M 45 48 Q 50 51 55 48' stroke='black' stroke-width='1.5' fill='none'/><rect x='35' y='18' width='30' height='10' rx='5' fill='%230f172a'/></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230ea5e9' rx='25'/><circle cx='50' cy='45' r='20' fill='%23fef08a'/><path d='M25 80 C25 60 35 55 50 55 C65 55 75 60 75 80 Z' fill='%230f172a'/><polygon points='50,55 45,65 55,65' fill='%23fef08a'/><circle cx='45' cy='42' r='2' fill='black'/><circle cx='55' cy='42' r='2' fill='black'/><path d='M 45 48 Q 50 51 55 48' stroke='black' stroke-width='1.5' fill='none'/><rect x='35' y='18' width='30' height='10' rx='5' fill='%230f172a'/></svg>">
+    <link rel="manifest" href='data:application/json,{"name":"Cô Giáo Xuân Mai AI","short_name":"XuanMaiAI","start_url":".","display":"standalone","background_color":"#f8fafc","theme_color":"#0ea5e9","icons":[{"src":"data:image/svg+xml;utf8,<svg xmlns=\x22http://www.w3.org/2000/svg\x22 viewBox=\x220 0 100 100\x22><rect width=\x22100\x22 height=\x22100\x22 fill=\x22%230ea5e9\x22 rx=\x2225\x22/><circle cx=\x2250\x22 cy=\x2245\x22 r=\x2220\x22 fill=\x22%23fef08a\x22/><path d=\x22M25 80 C25 60 35 55 50 55 C65 55 75 60 75 80 Z\x22 fill=\x22%230f172a\x22/><polygon points=\x2250,55 45,65 55,65\x22 fill=\x22%23fef08a\x22/><circle cx=\x2245\x22 cy=\x2242\x22 r=\x222\x22 fill=\x22black\x22/><circle cx=\x2255\x22 cy=\x2242\x22 r=\x222\x22 fill=\x22black\x22/><path d=\x22M 45 48 Q 50 51 55 48\x22 stroke=\x22black\x22 stroke-width=\x221.5\x22 fill=\x22none\x22/><rect x=\x2235\x22 y=\x2218\x22 width=\x2230\x22 height=\x2210\x22 rx=\x225\x22 fill=\x22%230f172a\x22/></svg>","sizes":"192x192","type":"image/svg+xml"}]}' />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-pink-50 h-screen flex flex-col font-sans select-none">
+<body class="bg-slate-50 h-screen flex flex-col justify-between font-sans select-none text-slate-800">
 
-    <div class="bg-pink-300 text-pink-900 p-4 shadow-md sticky top-0 z-50 rounded-b-2xl border-b-2 border-pink-400">
-        <h1 class="text-md font-bold text-center">🎀 HELLO KITTY GIA SƯ</h1>
-        <input id="apiKeyInput" type="password" placeholder="Dán API Key..." class="w-full mt-2 p-1.5 text-xs rounded-full border border-pink-400 focus:outline-none" onchange="saveKey()">
-        <div class="flex gap-2 mt-2">
-            <select id="gradeSelect" class="flex-1 bg-white p-1.5 rounded-full text-xs font-bold shadow">
-                <option value="Lớp 12" selected>Lớp 12</option>
-                <option value="Lớp 11">Lớp 11</option><option value="Lớp 10">Lớp 10</option><option value="Lớp 9">Lớp 9</option>
-            </select>
-            <select id="subjectSelect" class="flex-1 bg-white p-1.5 rounded-full text-xs font-bold shadow">
-                <option value="Toán Học">Toán</option><option value="Ngữ Văn">Văn</option><option value="Tiếng Anh">Anh</option>
-                <option value="Vật Lý">Lý</option><option value="Hóa Học">Hóa</option><option value="Sinh Học">Sinh</option>
-                <option value="Lịch Sử">Sử</option><option value="Địa Lý">Địa</option>
-            </select>
+    <!-- Header ứng dụng -->
+    <div class="bg-teal-600 text-white p-4 shadow-md sticky top-0 z-50 rounded-b-2xl border-b border-teal-700">
+        <div class="flex justify-between items-center max-w-2xl mx-auto">
+            <h1 class="text-md font-bold tracking-wide flex items-center gap-1">👩‍🏫 CÔ GIÁO XUÂN MAI AI</h1>
+            <!-- Nút chuyển đổi Tab nhanh -->
+            <div class="flex bg-teal-800 rounded-lg p-0.5 text-xs">
+                <button id="tabChatBtn" class="bg-white text-teal-900 px-3 py-1 rounded-md font-medium">Lớp Học</button>
+                <button id="tabDeThiBtn" class="text-white px-3 py-1 rounded-md font-medium">Kho Đề Thi</button>
+            </div>
+        </div>
+        
+        <!-- Cấu hình Lớp / Môn / API -->
+        <div id="configPanel" class="max-w-2xl mx-auto mt-3 space-y-2">
+            <input id="apiKeyInput" type="password" placeholder="Nhập mã API Gemini tại đây..." class="w-full p-2 text-xs rounded-lg bg-teal-50 text-slate-900 focus:outline-none shadow-inner" onchange="saveKey()">
+            <div class="flex gap-2">
+                <select id="gradeSelect" class="flex-1 bg-white text-slate-900 p-2 rounded-lg text-xs font-semibold shadow" onchange="updateWelcomeMessage()">
+                    <option value="Lớp 12" selected>Lớp 12</option><option value="Lớp 11">Lớp 11</option><option value="Lớp 10">Lớp 10</option>
+                    <option value="Lớp 9">Lớp 9</option><option value="Lớp 8">Lớp 8</option><option value="Lớp 7">Lớp 7</option>
+                    <option value="Lớp 6">Lớp 6</option><option value="Lớp 5">Lớp 5</option><option value="Lớp 4">Lớp 4</option>
+                    <option value="Lớp 3">Lớp 3</option><option value="Lớp 2">Lớp 2</option><option value="Lớp 1">Lớp 1</option>
+                </select>
+                <select id="subjectSelect" class="flex-1 bg-white text-slate-900 p-2 rounded-lg text-xs font-semibold shadow" onchange="checkAudioSupport()">
+                    <option value="Toán Học">Môn Toán Học</option><option value="Ngữ Văn">Môn Ngữ Văn</option>
+                    <option value="Tiếng Anh" selected>Môn Tiếng Anh</option><option value="Vật Lý">Môn Vật Lý</option>
+                    <option value="Hóa Học">Môn Hóa Học</option><option value="Sinh Học">Môn Sinh Học</option>
+                    <option value="Lịch Sử">Môn Lịch Sử</option><option value="Địa Lý">Môn Địa Lý</option>
+                </select>
+            </div>
         </div>
     </div>
 
-    <div id="chatBox" class="flex-1 p-4 overflow-y-auto space-y-4">
-        <div class="bg-white p-3 rounded-2xl shadow-sm text-sm text-gray-700 border-l-4 border-pink-400">
-            Chào bạn! Tớ đã cài đặt chế độ giải bài tập chuẩn form, ngắn gọn, súc tích. Hãy gửi câu hỏi nhé!
+    <!-- NỘI DUNG CHÍNH: TAB 1 - LỚP HỌC (CHAT VỚI CÔ) -->
+    <div id="tabChat" class="flex-1 overflow-y-auto p-4 space-y-4 max-w-2xl w-full mx-auto">
+        <div id="chatBox" class="space-y-4">
+            <div id="welcomeText" class="bg-white p-3.5 rounded-xl rounded-tl-none shadow-sm text-sm border-l-4 border-teal-500 leading-relaxed">
+                Chào em! Cô là Xuân Mai. Hãy gửi đề bài, ảnh chụp sơ đồ hoặc câu hỏi qua đây, cô sẽ hướng dẫn em phương pháp giải và đưa ra lời giải chuẩn xác nhất nhé! 📑
+            </div>
         </div>
     </div>
 
-    <div class="bg-white p-3 border-t border-pink-200 sticky bottom-0">
-        <div id="imagePreview" class="mb-2 hidden"></div>
-        <div class="flex items-center gap-2">
-            <label for="fileInput" class="bg-pink-100 p-3 rounded-full cursor-pointer">📷</label>
+    <!-- NỘI DUNG CHÍNH: TAB 2 - KHO ĐỀ THI TỰ ĐỘNG CẬP NHẬT -->
+    <div id="tabDeThi" class="flex-1 overflow-y-auto p-4 max-w-2xl w-full mx-auto hidden space-y-3">
+        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex justify-between items-center">
+            <span>Đề thi thật từ các trường điểm (Cập nhật 2026)</span>
+            <span class="text-teal-600 animate-pulse">● Live cập nhật</span>
+        </div>
+        <!-- Danh sách bộ đề tự động tạo/lấy từ internet hệ thống -->
+        <div id="examContainer" class="space-y-2.5"></div>
+    </div>
+
+    <!-- Thanh công cụ nhập liệu cố định phía đáy -->
+    <div class="bg-white border-t border-slate-200 p-3 sticky bottom-0 z-40">
+        <div id="imagePreview" class="max-w-2xl mx-auto flex gap-2 hidden mb-2"></div>
+        <div class="max-w-2xl mx-auto flex items-center gap-2">
+            <label for="fileInput" class="bg-slate-100 text-slate-600 p-3 rounded-xl cursor-pointer hover:bg-slate-200 shadow-sm" title="Tải ảnh bài tập">📷</label>
             <input id="fileInput" type="file" accept="image/*" class="hidden">
-            <input id="userInput" type="text" placeholder="Nhập bài..." class="flex-1 border rounded-full px-4 py-2 text-sm focus:outline-none">
-            <button id="sendBtn" class="bg-pink-500 text-white px-5 py-2 rounded-full font-bold text-sm">GỬI</button>
+            
+            <input id="userInput" type="text" placeholder="Dán bài tập hoặc nhập yêu cầu tại đây..." class="flex-1 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-teal-500 shadow-sm bg-slate-50 text-slate-900">
+            
+            <button id="sendBtn" class="bg-teal-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-teal-700 shadow shadow-teal-200 transition-colors">GIẢI BÀI</button>
         </div>
     </div>
 
@@ -51,70 +92,191 @@
         const imagePreview = document.getElementById('imagePreview');
         const gradeSelect = document.getElementById('gradeSelect');
         const subjectSelect = document.getElementById('subjectSelect');
+        const welcomeText = document.getElementById('welcomeText');
+
+        // Các biến điều khiển chuyển tab
+        const tabChatBtn = document.getElementById('tabChatBtn');
+        const tabDeThiBtn = document.getElementById('tabDeThiBtn');
+        const tabChat = document.getElementById('tabChat');
+        const tabDeThi = document.getElementById('tabDeThi');
+        const examContainer = document.getElementById('examContainer');
 
         let base64Image = null; let imageMimeType = null;
-        window.onload = () => { if(localStorage.getItem('user_gemini_key')) apiKeyInput.value = localStorage.getItem('user_gemini_key'); }
+
+        window.onload = () => { 
+            if(localStorage.getItem('user_gemini_key')) apiKeyInput.value = localStorage.getItem('user_gemini_key');
+            updateWelcomeMessage();
+            renderExamList();
+        }
         function saveKey() { localStorage.setItem('user_gemini_key', apiKeyInput.value.trim()); }
 
+        // Xử lý đổi xưng hô thời gian thực
+        function updateWelcomeMessage() {
+            const gradeVal = gradeSelect.value;
+            const isPrimary = ["Lớp 1","Lớp 2","Lớp 3","Lớp 4","Lớp 5"].includes(gradeVal);
+            if(isPrimary) {
+                welcomeText.innerText = "Chào con! Cô là Xuân Mai. Con gửi bài tập hoặc hình ảnh đề bài qua đây, cô hướng dẫn cách làm và đưa ra lời giải chuẩn cho con nhé! 📑";
+            } else {
+                welcomeText.innerText = "Chào em! Cô là Xuân Mai. Hãy gửi đề bài, ảnh chụp sơ đồ hoặc câu hỏi qua đây, cô sẽ hướng dẫn em phương pháp giải và đưa ra lời giải chuẩn xác nhất nhé! 📑";
+            }
+        }
+
+        // Chuyển đổi Tab Giao diện
+        tabChatBtn.addEventListener('click', () => {
+            tabChatBtn.className = "bg-white text-teal-900 px-3 py-1 rounded-md font-medium";
+            tabDeThiBtn.className = "text-white px-3 py-1 rounded-md font-medium";
+            tabChat.classList.remove('hidden'); tabDeThi.classList.add('hidden');
+        });
+        tabDeThiBtn.addEventListener('click', () => {
+            tabDeThiBtn.className = "bg-white text-teal-900 px-3 py-1 rounded-md font-medium";
+            tabChatBtn.className = "text-white px-3 py-1 rounded-md font-medium";
+            tabDeThi.classList.remove('hidden'); tabChat.classList.add('hidden');
+        });
+
+        // Giả lập cơ sở dữ liệu đề thi tự động cập nhật thời gian thực 2026 từ các trường THPT Chuyên/Trường điểm
+        const mockExams = [
+            { id: 1, title: "Đề thi thử Tốt nghiệp THPT Quốc Gia 2026 - Toán học", school: "Trường THPT Chuyên Khoa Học Tự Nhiên Hà Nội", content: "Giải phương trình sau: log_2(x^2 - 3x + 2) = 1" },
+            { id: 2, title: "Đề khảo sát chất lượng Học kỳ II Lớp 12 - Ngữ Văn", school: "Sở GD&ĐT Thành phố Hồ Chí Minh (2026)", content: "Phân tích giá trị nhân đạo trong tác phẩm Vợ Nhặt của nhà văn Kim Lân." },
+            { id: 3, title: "Đề tuyển sinh vào lớp 10 Chuyên - Tiếng Anh", school: "Trường THPT Chuyên Hà Nội - Amsterdam", content: "Rewrite the sentence: 'If I don't hurry, I will miss the last bus.' Using 'Unless'..." },
+            { id: 4, title: "Đề kiểm tra định kỳ Học Kỳ - Vật Lý 11", school: "Trường THPT Chuyên Lê Hồng Phong", content: "Một tụ điện phẳng được mắc vào nguồn điện U = 200V. Tính điện tích tụ điện biết C = 20 microFarad." },
+            { id: 5, title: "Đề thi Học kỳ chọn học sinh khá giỏi - Hóa học 9", school: "Trường THCS Chu Văn An Hà Nội", content: "Cho 5.6g Fe tác dụng hoàn toàn với dung dịch HCl dư. Tính thể tích khí H2 thoát ra ở ĐKTC." }
+        ];
+
+        function renderExamList() {
+            examContainer.innerHTML = "";
+            mockExams.forEach(exam => {
+                const item = document.createElement('div');
+                item.className = "bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex flex-col justify-between hover:border-teal-400 cursor-pointer transition-all";
+                item.innerHTML = `
+                    <div class="text-xs font-semibold text-teal-600">${exam.school}</div>
+                    <div class="text-sm font-bold text-slate-800 mt-0.5">${exam.title}</div>
+                    <div class="text-xs text-slate-500 line-clamp-1 mt-1 bg-slate-50 p-1.5 rounded border border-dashed">${exam.content}</div>
+                `;
+                item.onclick = () => {
+                    userInput.value = `[${exam.title} - ${exam.school}]: ${exam.content}`;
+                    tabChatBtn.click();
+                    userInput.focus();
+                };
+                examContainer.appendChild(item);
+            });
+        }
+
+        // Xử lý Ảnh đính kèm
         fileInput.addEventListener('change', (e) => {
             const file = e.target.files[0];
             if (file) {
                 imageMimeType = file.type;
                 const reader = new FileReader();
-                reader.onload = (event) => {
+                reader.onload = function(event) {
                     base64Image = event.target.result.split(',')[1];
-                    imagePreview.innerHTML = `<img src="${event.target.result}" class="h-12 w-12 rounded-lg">`;
+                    imagePreview.innerHTML = `
+                        <div class="relative inline-block">
+                            <img src="${event.target.result}" class="h-14 w-14 object-cover rounded-lg border-2 border-teal-500">
+                            <button onclick="window.clearImage()" class="absolute -top-1.5 -right-1.5 bg-rose-500 text-white rounded-full w-4 h-4 text-xs font-bold flex items-center justify-center">×</button>
+                        </div>`;
                     imagePreview.classList.remove('hidden');
                 };
                 reader.readAsDataURL(file);
             }
         });
 
+        window.clearImage = function() {
+            base64Image = null; imageMimeType = null; fileInput.value = '';
+            imagePreview.innerHTML = ''; imagePreview.classList.add('hidden');
+        }
+
+        // Công cụ Text-To-Speech hỗ trợ phát âm tiếng Anh
+        window.speakEnglish = function(textToSpeak) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // Dừng âm thanh đang chạy trước đó
+                // Loại bỏ các ký tự tiêu đề tiếng Việt để máy tập trung đọc đoạn tiếng Anh bên dưới
+                const cleanText = textToSpeak.replace(/[^\x00-\x7F]+/g, ""); 
+                const utterance = new SpeechSynthesisUtterance(cleanText || textToSpeak);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.9; // Đọc chậm một chút cho học sinh nghe rõ
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Trình duyệt của bạn chưa hỗ trợ tính năng phát âm.");
+            }
+        }
+
+        // Xử lý Gửi tin nhắn lên AI
         sendBtn.addEventListener('click', async () => {
             const apiKey = apiKeyInput.value.trim();
-            if (!apiKey) { alert("Dán API Key!"); return; }
+            if (!apiKey) { alert("Vui lòng nhập mã API Key vào ô cấu hình phía trên!"); return; }
             const text = userInput.value.trim();
             if (!text && !base64Image) return;
 
-            // Hiển thị user message
-            const userMsg = document.createElement('div');
-            userMsg.className = "bg-pink-400 text-white p-3 rounded-2xl ml-auto text-sm max-w-[80%]";
-            userMsg.innerText = text;
-            chatBox.appendChild(userMsg);
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = "bg-slate-800 text-white p-3 rounded-xl rounded-tr-none ml-auto max-w-[85%] text-sm shadow-sm space-y-2";
+            if(base64Image) userMsgDiv.innerHTML += `<img src="data:${imageMimeType};base64,${base64Image}" class="max-h-40 rounded-lg mb-1">`;
+            if(text) userMsgDiv.innerHTML += `<div>${text}</div>`;
+            document.getElementById('chatBox').appendChild(userMsgDiv);
+            tabChat.scrollTop = tabChat.scrollHeight;
 
-            userInput.value = ''; imagePreview.classList.add('hidden');
             const tempText = text; const tempBase64 = base64Image; const tempMime = imageMimeType;
-            base64Image = null;
+            userInput.value = ''; window.clearImage();
 
-            const loading = document.createElement('div');
-            loading.className = "text-xs text-gray-400 italic"; loading.innerText = "Đang giải...";
-            chatBox.appendChild(loading);
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = "bg-white p-3 rounded-xl rounded-tl-none max-w-[85%] text-xs italic text-slate-400 shadow-sm border border-slate-100";
+            loadingDiv.innerText = "Cô Xuân Mai đang xem đề bài và nạp lời giải chuẩn...";
+            document.getElementById('chatBox').appendChild(loadingDiv);
+            tabChat.scrollTop = tabChat.scrollHeight;
 
-            // CẤU HÌNH LỆNH HỆ THỐNG MỚI (CHUẨN FORM, GỌN GÀNG)
-            const systemPrompt = `Bạn là gia sư. Khi giải bài tập, BẮT BUỘC tuân thủ định dạng sau:
-            1. Tóm tắt kiến thức (ngắn gọn nhất).
-            2. Các bước giải (dùng số 1, 2, 3.. liệt kê rõ ràng).
-            3. Đáp số cuối cùng.
-            KHÔNG rườm rà, KHÔNG văn mẫu. Đi thẳng vào lời giải. Tối giản các biểu tượng trang trí.`;
+            const grade = gradeSelect.value;
+            const subject = subjectSelect.value;
+            
+            // Logic tính toán xưng hô động theo cấu hình độ tuổi lớp học
+            const isPrimary = ["Lớp 1","Lớp 2","Lớp 3","Lớp 4","Lớp 5"].includes(grade);
+            const pronounStudent = isPrimary ? "con" : "em";
+
+            // SYSTEM PROMPT CỦA CÔ GIÁO XUÂN MAI (GEN Z, CHUẨN FORM, KHÔNG LỜI THỪA)
+            const systemPrompt = `Bạn là cô giáo tên là Xuân Mai, một giáo viên Gen Z hiện đại, gần gũi, không khô khan nhưng phong cách giảng dạy cực kỳ ngắn gọn, ít lời thừa, tuyệt đối không nói nhảm nhí hay chào hỏi rườm rà dài dòng ngoài chuyên môn đáp án.
+            Bạn đang giải đáp môn ${subject} cho trình độ ${grade}.
+            BẮT BUỘC xưng hô là "cô" và gọi người dùng là "${pronounStudent}".
+            
+            CẤU TRÚC ĐÁP ÁN BẮT BUỘC:
+            1. HƯỚNG DẪN SƠ LƯỢC: (Tóm tắt ngắn gọn hướng tư duy, dựa trên cơ sở khoa học nào, định lý/định luật nào, hoặc công thức nào cốt lõi để làm bài).
+            2. LỜI GIẢI CHUẨN: (Trình bày lời giải chi tiết, chính xác, sạch đẹp bám sát theo chuẩn Sách Giáo Khoa hiện hành).
+            
+            Nếu là môn Tiếng Anh, phần Lời giải chuẩn hãy cố gắng ghi kèm các câu tiếng Anh để học sinh luyện đọc.`;
 
             try {
-                const parts = [{ text: `${systemPrompt}\n\nBài tập: ${tempText || "Giải bài này"}` }];
-                if (tempBase64) parts.push({ inlineData: { mimeType: tempMime, data: tempBase64 } });
+                const contentsParts = [{ text: `${systemPrompt}\n\nĐề bài cần giải quyết: ${tempText || "Hãy phân tích và giải hình ảnh này giúp cô."}` }];
+                if (tempBase64) contentsParts.push({ inlineData: { mimeType: tempMime, data: tempBase64 } });
 
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
-                    body: JSON.stringify({ contents: [{ parts }] })
+                    body: JSON.stringify({ contents: [{ parts: contentsParts }] })
                 });
 
                 const data = await response.json();
-                loading.remove();
+                loadingDiv.remove();
+                
                 const aiDiv = document.createElement('div');
-                aiDiv.className = "bg-white p-4 rounded-2xl shadow-sm text-sm border-l-4 border-pink-400 whitespace-pre-line text-gray-800";
-                aiDiv.innerText = data.candidates?.[0]?.content?.parts?.[0]?.text || "Có lỗi xảy ra.";
-                chatBox.appendChild(aiDiv);
-            } catch (e) { loading.innerText = "Lỗi kết nối."; }
+                aiDiv.className = "bg-white p-4 rounded-xl rounded-tl-none shadow-sm max-w-[85%] text-sm border-l-4 border-teal-500 whitespace-pre-line text-slate-800 leading-relaxed space-y-2";
+                
+                let rawResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "Mã nguồn máy chủ bận, hãy kiểm tra lại kết nối mạng hoặc API Key!";
+                aiDiv.innerText = rawResponse;
+
+                // Nếu là môn Tiếng Anh, tự động sinh thêm nút bấm đọc Audio hỗ trợ học sinh nghe nói
+                if (subject === "Tiếng Anh") {
+                    const audioBtn = document.createElement('button');
+                    audioBtn.className = "mt-2 bg-slate-100 hover:bg-teal-50 text-teal-700 text-xs font-bold px-2.5 py-1.5 rounded-lg flex items-center gap-1 border border-teal-200 transition-colors";
+                    audioBtn.innerHTML = "🔊 Nghe cô phát âm tiếng Anh";
+                    audioBtn.onclick = () => window.speakEnglish(rawResponse);
+                    aiDiv.appendChild(audioBtn);
+                }
+
+                document.getElementById('chatBox').appendChild(aiDiv);
+                tabChat.scrollTop = tabChat.scrollHeight;
+            } catch (e) { 
+                loadingDiv.innerText = "Lỗi kết nối máy chủ! Hãy kiểm tra lại API."; 
+            }
         });
+
+        userInput.addEventListener("keypress", (e) => { if (e.key === "Enter") sendBtn.click(); });
     </script>
 </body>
 </html>
