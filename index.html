@@ -6,7 +6,8 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <title>Cô Giáo Xuân Mai AI - Toàn Diện Lớp 1-12</title>
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230ea5e9' rx='25'/><circle cx='50' cy='45' r='20' fill='%23fef08a'/><path d='M25 80 C25 60 35 55 50 55 C65 55 75 60 75 80 Z' fill='%230f172a'/><circle cx='45' cy='42' r='2' fill='black'/><circle cx='55' cy='42' r='2' fill='black'/></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧑‍🏫</text></svg>">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .custom-scroll::-webkit-scrollbar { width: 4px; }
@@ -18,28 +19,28 @@
     <script>
         const AI_CONFIG = {
             MODEL_NAME: "gemini-2.5-flash", 
-            API_URL: "https://generativelanguage.googleapis.com/v1/models"
+            API_URL: "https://generativelanguage.googleapis.com/v1beta/models"
         };
     </script>
 
-    <div class="bg-teal-600 text-white p-4 shadow-md sticky top-0 z-50 rounded-b-2xl border-b border-teal-700">
-        <div class="flex justify-between items-center max-w-2xl mx-auto">
-            <h1 class="text-sm font-bold tracking-wide flex items-center gap-1">👩‍🏫 CÔ GIÁO XUÂN MAI AI</h1>
+    <div class="bg-teal-600 text-white p-3 shadow-md sticky top-0 z-50 rounded-b-2xl border-b border-teal-700">
+        <div class="flex justify-between items-center max-w-2xl mx-auto mb-2">
+            <h1 class="text-xs font-bold tracking-wide flex items-center gap-1">🧑‍🏫 CÔ GIÁO XUÂN MAI AI</h1>
             
-            <div class="flex bg-teal-800 rounded-xl p-1 text-xs shadow-inner">
-                <button id="tabChatBtn" class="bg-white text-teal-900 px-3 py-1.5 rounded-lg font-bold transition-all">Lớp Học</button>
-                <button id="tabDeThiBtn" class="text-white px-3 py-1.5 rounded-lg font-bold transition-all">Luyện Đề</button>
+            <div class="flex bg-teal-800 rounded-xl p-0.5 text-[11px] shadow-inner">
+                <button id="tabChatBtn" class="bg-white text-teal-900 px-2.5 py-1 rounded-lg font-bold transition-all">Lớp Học</button>
+                <button id="tabDeThiBtn" class="text-white px-2.5 py-1 rounded-lg font-bold transition-all">Luyện Đề</button>
             </div>
         </div>
         
-        <div class="max-w-2xl mx-auto mt-3 flex gap-2 items-center">
-            <select id="gradeSelect" class="bg-white text-slate-950 p-2 rounded-xl text-xs font-bold shadow w-1/4" onchange="onFilterChange()">
+        <div class="max-w-2xl mx-auto flex gap-1.5 items-center">
+            <select id="gradeSelect" class="bg-white text-slate-950 p-2 rounded-xl text-xs font-bold shadow w-[32%] shrink-0" onchange="onFilterChange()">
                 <option value="Lớp 12" selected>Lớp 12</option><option value="Lớp 11">Lớp 11</option><option value="Lớp 10">Lớp 10</option>
                 <option value="Lớp 9">Lớp 9</option><option value="Lớp 8">Lớp 8</option><option value="Lớp 7">Lớp 7</option><option value="Lớp 6">Lớp 6</option>
                 <option value="Lớp 5">Lớp 5</option><option value="Lớp 4">Lớp 4</option><option value="Lớp 3">Lớp 3</option><option value="Lớp 2">Lớp 2</option><option value="Lớp 1">Lớp 1</option>
             </select>
-            <select id="subjectSelect" class="bg-white text-slate-950 p-2 rounded-xl text-xs font-bold shadow flex-1" onchange="onFilterChange()">
-                <option value="Toán học / Hình học" selected>Toán học / Hình học</option>
+            <select id="subjectSelect" class="bg-white text-slate-950 p-2 rounded-xl text-xs font-bold shadow flex-1 min-w-0" onchange="onFilterChange()">
+                <option value="Toán học / Hình học" selected>Toán / Hình Học</option>
                 <option value="Ngữ Văn">Môn Ngữ Văn</option>
                 <option value="Tiếng Anh (Ngoại ngữ)">Tiếng Anh (Ngoại ngữ)</option>
                 <option value="Vật Lý">Môn Vật Lý</option>
@@ -48,16 +49,15 @@
                 <option value="Lịch Sử">Môn Lịch Sử</option>
                 <option value="Địa Lý">Môn Địa Lý</option>
             </select>
-            <button onclick="openApiModal()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-2.5 py-2 rounded-xl text-xs shadow shrink-0 flex items-center gap-1">🔑 Nhận API Free</button>
+            <button onclick="openApiModal()" class="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-2 py-2 rounded-xl text-[11px] shadow shrink-0">🔑 Key Free</button>
         </div>
         
         <div class="max-w-2xl mx-auto mt-2">
-            <input id="apiKeyInput" type="password" placeholder="Dán mã khóa API Gemini của bạn tại đây để bắt đầu học..." class="w-full p-2 text-xs rounded-xl bg-teal-50 text-slate-900 focus:outline-none shadow-inner border border-teal-500/30" onchange="saveApiKey()">
+            <input id="apiKeyInput" type="password" placeholder="Dán mã khóa API Gemini tại đây..." class="w-full p-2 text-xs rounded-xl bg-teal-50 text-slate-900 focus:outline-none shadow-inner border border-teal-500/30" onchange="saveApiKey()">
         </div>
     </div>
 
     <div class="flex-1 overflow-hidden relative">
-        
         <div id="tabChatView" class="h-full overflow-y-auto p-4 space-y-4 max-w-2xl w-full mx-auto custom-scroll">
             <div id="chatBox" class="space-y-4 pb-24">
                 <div id="welcomeText" class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm text-sm border-l-4 border-teal-500 leading-relaxed">
@@ -67,77 +67,69 @@
         </div>
 
         <div id="tabDeThiView" class="h-full overflow-y-auto p-4 max-w-2xl w-full mx-auto hidden custom-scroll pb-10">
-            <div class="bg-teal-50 p-3 rounded-xl mb-4 border border-teal-100 flex justify-between items-center text-xs">
-                <span class="font-semibold text-teal-800">📚 Nguồn: 30 trường cấp 2 & 30 trường cấp 3 tiêu điểm cả nước (10 năm qua)</span>
-                <span class="bg-teal-600 text-white px-2 py-0.5 rounded-full text-[10px] animate-pulse">Live</span>
+            <div class="bg-teal-50 p-3 rounded-xl mb-4 border border-teal-100 flex justify-between items-center text-[11px]">
+                <span class="font-semibold text-teal-800">📚 Nguồn: 60 trường tiêu điểm cả nước (10 năm qua)</span>
+                <span class="bg-teal-600 text-white px-1.5 py-0.5 rounded-full text-[9px] animate-pulse">Live</span>
             </div>
-            <div id="examContainer" class="space-y-3">
-                </div>
+            <div id="examContainer" class="space-y-3"></div>
         </div>
     </div>
 
-    <div id="inputBarContainer" class="bg-white border-t border-slate-200 p-3 sticky bottom-0 z-40 shadow-[0_-4px_10px_rgba(0,0,0,0.03)]">
+    <div id="inputBarContainer" class="bg-white border-t border-slate-200 p-2 sticky bottom-0 z-40 shadow-[0_-4px_10px_rgba(0,0,0,0.03)]">
         <div id="imagePreview" class="max-w-2xl mx-auto flex gap-2 hidden mb-2"></div>
-        <div class="max-w-2xl mx-auto flex items-center gap-2">
-            <label for="fileInput" class="bg-slate-100 text-slate-600 p-3.5 rounded-xl cursor-pointer hover:bg-slate-200 shadow-sm transition-all" title="Tải ảnh bài tập">📷</label>
+        <div class="max-w-2xl mx-auto flex items-center gap-1.5">
+            <label for="fileInput" class="bg-slate-100 text-slate-600 p-3 rounded-xl cursor-pointer hover:bg-slate-200 text-sm shrink-0 shadow-sm">📷</label>
             <input id="fileInput" type="file" accept="image/*" class="hidden">
             
-            <button id="micBtn" class="bg-slate-100 text-slate-600 p-3.5 rounded-xl hover:bg-slate-200 shadow-sm transition-all" title="Bấm để nói thay vì gõ văn bản">🎤</button>
+            <button id="micBtn" class="bg-slate-100 text-slate-600 p-3 rounded-xl hover:bg-slate-200 text-sm shrink-0 shadow-sm">🎤</button>
             
-            <input id="userInput" type="text" placeholder="Hỏi bài hoặc bấm nút Mic để nói..." class="flex-1 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teal-500 shadow-inner bg-slate-50 text-slate-900">
+            <input id="userInput" type="text" placeholder="Hỏi bài hoặc bấm Mic để nói..." class="flex-1 min-w-0 border border-slate-300 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-teal-500 shadow-inner bg-slate-50 text-slate-900">
             
-            <button id="sendBtn" class="bg-teal-600 text-white px-5 py-3 rounded-xl font-bold text-sm hover:bg-teal-700 shadow-md shadow-teal-100 transition-all shrink-0">GIẢI BÀI</button>
+            <button id="sendBtn" class="bg-teal-600 text-white p-3 rounded-xl font-bold text-sm hover:bg-teal-700 shadow-md transition-all shrink-0 flex items-center justify-center min-w-[50px]">🚀</button>
         </div>
     </div>
 
     <div id="apiModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white p-6 rounded-2xl max-w-md w-full space-y-4 shadow-2xl border border-slate-100 animate-in fade-in zoom-in duration-200">
+        <div class="bg-white p-5 rounded-2xl max-w-md w-full space-y-4 shadow-2xl border border-slate-100">
             <div class="flex justify-between items-center border-b pb-2">
-                <h3 class="font-bold text-md text-teal-600 flex items-center gap-1.5">🔑 Hướng Dẫn Nhận API Gemini Free</h3>
-                <button onclick="closeApiModal()" class="text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
+                <h3 class="font-bold text-sm text-teal-600">🔑 Hướng Dẫn Nhận API Gemini Free</h3>
+                <button onclick="closeApiModal()" class="text-slate-400 hover:text-slate-600 text-lg font-bold">&times;</button>
             </div>
-            <div class="text-xs text-slate-600 space-y-3 leading-relaxed">
-                <p class="font-semibold text-amber-600 bg-amber-50 p-2.5 rounded-xl border border-amber-200">📌 Chú ý quan trọng: Mã API này hoàn toàn MIỄN PHÍ 100% theo chính sách hỗ trợ cộng đồng và phát triển công nghệ toàn cầu của Google.</p>
-                <div class="space-y-2">
-                    <p><b>Bước 1:</b> Nhấp truy cập vào liên kết sau: <a href="https://aistudio.google.com/" target="_blank" class="text-teal-600 font-bold underline inline-flex items-center">Google AI Studio ↗</a></p>
-                    <p><b>Bước 2:</b> Đăng nhập bằng tài khoản Gmail cá nhân của bạn.</p>
-                    <p><b>Bước 3:</b> Tìm và nhấp vào nút màu xanh có chữ <b>"Get API Key"</b> ở cột trái, chọn tiếp <b>"Create API Key"</b>.</p>
-                    <p><b>Bước 4:</b> Sao chép (Copy) đoạn ký tự hệ thống vừa cấp, quay lại ứng dụng này rồi dán vào ô nhập liệu phía trên đầu trang là hoàn tất.</p>
-                </div>
+            <div class="text-xs text-slate-600 space-y-2.5 leading-relaxed">
+                <p class="font-semibold text-amber-600 bg-amber-50 p-2 rounded-xl border border-amber-200">📌 Chũ ý: Mã API này hoàn toàn MIỄN PHÍ 100% từ Google.</p>
+                <p><b>Bước 1:</b> Truy cập liên kết: <a href="https://aistudio.google.com/" target="_blank" class="text-teal-600 font-bold underline">Google AI Studio ↗</a></p>
+                <p><b>Bước 2:</b> Đăng nhập tài khoản Gmail của bạn.</p>
+                <p><b>Bước 3:</b> Chọn <b>"Get API Key"</b> ở cột trái -> Chọn tiếp <b>"Create API Key"</b>.</p>
+                <p><b>Bước 4:</b> Copy đoạn mã hệ thống cấp rồi dán vào ô nhập liệu màu xanh trên app.</p>
             </div>
-            <button onclick="closeApiModal()" class="w-full bg-teal-600 text-white p-2.5 rounded-xl font-bold text-sm shadow hover:bg-teal-700 transition-colors">ĐÃ HIỂU</button>
+            <button onclick="closeApiModal()" class="w-full bg-teal-600 text-white p-2 rounded-xl font-bold text-xs shadow">ĐÃ HIỂU</button>
         </div>
     </div>
 
     <div id="documentModal" class="hidden fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-2xl w-full h-[80vh] flex flex-col justify-between shadow-2xl border animate-in fade-in duration-200">
+        <div class="bg-white rounded-2xl max-w-2xl w-full h-[85vh] flex flex-col justify-between shadow-2xl border animate-in fade-in duration-200">
             <div class="bg-slate-50 p-4 border-b rounded-t-2xl flex justify-between items-center">
                 <div>
                     <h4 id="docModalTitle" class="font-bold text-teal-700 text-sm">Tiêu đề văn bản</h4>
-                    <p id="docModalSubtitle" class="text-[11px] text-slate-400 font-medium mt-0.5">Nguồn trích dẫn</p>
+                    <p id="docModalSubtitle" class="text-[10px] text-slate-400 font-medium mt-0.5">Nguồn trích dẫn</p>
                 </div>
-                <button onclick="closeDocumentModal()" class="bg-slate-200 text-slate-700 rounded-full w-7 h-7 flex items-center justify-center font-bold hover:bg-slate-300">&times;</button>
+                <button onclick="closeDocumentModal()" class="bg-slate-200 text-slate-700 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs">&times;</button>
             </div>
-            <div id="docModalBody" class="flex-1 overflow-y-auto p-5 text-sm leading-relaxed whitespace-pre-line custom-scroll bg-slate-50/50">
-                </div>
+            <div id="docModalBody" class="flex-1 overflow-y-auto p-4 text-xs leading-relaxed whitespace-pre-line custom-scroll bg-slate-50/50"></div>
             <div class="p-3 border-t bg-white rounded-b-2xl flex justify-end">
-                <button onclick="closeDocumentModal()" class="bg-slate-800 text-white px-5 py-2 rounded-xl text-xs font-bold shadow hover:bg-slate-900">Đóng lại</button>
+                <button onclick="closeDocumentModal()" class="bg-slate-800 text-white px-4 py-1.5 rounded-xl text-xs font-bold shadow">Đóng</button>
             </div>
         </div>
     </div>
 
     <script>
-        // KHO DỮ LIỆU ĐỀ THI TRÍCH DẪN 10 NĂM QUA (Có phân bổ mẫu cho cả khối Tiểu học và các môn mới bổ sung)
         const MASTER_EXAMS_DATABASE = [
-            { id: "01", grade: "Lớp 12", subject: "Toán học / Hình học", school: "Trường THPT Chuyên Khoa Học Tự Nhiên Hà Nội (Năm 2025)", title: "Đề thi thử Tốt nghiệp THPT Quốc Gia - Phần Hình Học Không Gian", content: "Câu 1: Cho khối chóp S.ABCD có đáy là hình vuông cạnh a, cạnh bên SA vuông góc với đáy. Tính thể tích khối chóp biết SA = a*căn 3.\nCâu 2: Trong không gian Oxyz, tìm tọa độ tâm I của mặt cầu...", sol: "HƯỚNG DẪN GIẢI ĐỀ CHI TIẾT:\n\nCâu 1: Diện tích hình vuông đáy S = a^2. Chiều cao h = SA = a*căn 3. Công thức tính thể tích khối chóp là: V = 1/3 * S * h = (a^3 * căn 3) / 3.\nCâu 2: Biến đổi phương trình mặt cầu về dạng chuẩn để suy ra tâm I." },
-            { id: "02", grade: "Lớp 12", subject: "Toán học / Hình học", school: "Trường THPT Chuyên Lê Hồng Phong TP.HCM (Năm 2024)", title: "Đề khảo sát chuyên đề Hình học giải tích không gian Oxyz", content: "Câu 1: Viết phương trình mặt phẳng đi qua điểm A(1;2;3) và nhận vectơ n(2;-1;1) làm vectơ pháp tuyến.", sol: "LỜI GIẢI TIÊU CHUẨN:\n\nPhương trình mặt phẳng dạng: A(x - x0) + B(y - y0) + C(z - z0) = 0.\nThay số vào ta có: 2(x - 1) - 1(y - 2) + 1(z - 3) = 0 <=> 2x - y + z - 3 = 0." },
-            { id: "01", grade: "Lớp 12", subject: "Sinh Học", school: "Trường THPT Chuyên Trần Phú Hải Phòng (Năm 2024)", title: "Đề kiểm tra chọn đội tuyển học sinh giỏi môn Sinh học", content: "Câu 1: Hãy nêu các đặc điểm của mã di truyền. Tại sao mã di truyền lại có tính thoái hóa?\nCâu 2: Quá trình nhân đôi ADN diễn ra theo những nguyên tắc nào?", sol: "LỜI GIẢI CHI TIẾT:\n\nCâu 1: Mã di truyền là mã bộ ba, đọc liên tục từ một điểm, không gối lên nhau, có tính đặc hiệu, tính phổ biến và tính thoái hóa (nhiều bộ ba cùng mã hóa cho 1 axit amin).\nCâu 2: Diễn ra theo nguyên tắc bổ sung và nguyên tắc bán bảo toàn." },
-            { id: "01", grade: "Lớp 9", subject: "Lịch Sử", school: "Trường THCS Nguyễn Du - Quận 1 TP.HCM (Năm 2025)", title: "Đề ôn tập kỳ thi tuyển sinh vào lớp 10 chuyên Lịch Sử", content: "Câu 1: Trình bày hoàn cảnh lịch sử, nội dung và ý nghĩa của Hội nghị thành lập Đảng Cộng sản Việt Nam (đầu năm 1930).", sol: "HƯỚNG DẪN ĐÁP ÁN ĐẠT ĐIỂM TỐI ĐA:\n\n- Hoàn cảnh: Ba tổ chức cộng sản hoạt động riêng rẽ gây chia rẽ. Nguyễn Ái Quốc chủ trì hội nghị hợp nhất tại Hương Cảng.\n- Nội dung: Hợp nhất thành Đảng Cộng sản Việt Nam, thông qua Chính cương vắn tắt, Sách lược vắn tắt.\n- Ý nghĩa: Bước ngoặt vĩ đại của cách mạng Việt Nam." },
-            { id: "01", grade: "Lớp 5", subject: "Toán học / Hình học", school: "Trường Tiểu học Chu Văn An Hà Nội (Năm 2025)", title: "Đề khảo sát chất lượng cuối học kỳ II - Toán lớp 5", content: "Bài 1: Một hình tam giác có độ dài đáy là 12cm và chiều cao là 8cm. Tính diện tích hình tam giác đó.\nBài 2: Tính chu vi hình tròn có đường kính d = 5dm.", sol: "LỜI GIẢI CHI TIẾT CHO HỌC SINH TIỂU HỌC:\n\nBài 1: Diện tích của hình tam giác là: (Đáy x Chiều cao) : 2 = (12 x 8) : 2 = 48 (cm²).\nBài 2: Chu vi của hình tròn là: Đường kính x 3,14 = 5 x 3,14 = 15,7 (dm)." },
-            { id: "01", grade: "Lớp 3", subject: "Tiếng Anh (Ngoại ngữ)", school: "Trường Tiểu học Thực Nghiệm Hà Nội (Năm 2024)", title: "Đề kiểm tra học kỳ lớp 3 môn Tiếng Anh chuẩn Cambridge", content: "Question 1: Complete the sentences: 'What is your ______? - My name is Peter.'\nQuestion 2: Choose the correct answer: I ______ (have/has) two apples.", sol: "ANSWERS (ĐÁP ÁN CHUẨN):\n\nQuestion 1: name (What is your name?)\nQuestion 2: have (I have two apples)." }
+            { id: "01", grade: "Lớp 12", subject: "Toán học / Hình học", school: "Trường THPT Chuyên Khoa Học Tự Nhiên Hà Nội", title: "Đề thi thử Tốt nghiệp THPT Quốc Gia - Hình Học Không Gian", content: "Câu 1: Cho khối chóp S.ABCD có đáy là hình vuông cạnh a, cạnh bên SA vuông góc với đáy. Tính thể tích khối chóp biết SA = a*căn 3.\nCâu 2: Trong không gian Oxyz, tìm tọa độ tâm I của mặt cầu...", sol: "HƯỚNG DẪN GIẢI ĐỀ CHI TIẾT:\n\nCâu 1: Diện tích hình vuông đáy S = a^2. Chiều cao h = SA = a*căn 3. Công thức tính thể tích khối chóp là: V = 1/3 * S * h = (a^3 * căn 3) / 3.\nCâu 2: Biến đổi phương trình mặt cầu về dạng chuẩn để suy ra tâm I." },
+            { id: "02", grade: "Lớp 12", subject: "Toán học / Hình học", school: "Trường THPT Chuyên Lê Hồng Phong TP.HCM", title: "Đề khảo sát chuyên đề Hình học giải tích không gian Oxyz", content: "Câu 1: Viết phương trình mặt phẳng đi qua điểm A(1;2;3) và nhận vectơ n(2;-1;1) làm vectơ pháp tuyến.", sol: "LỜI GIẢI TIÊU CHUẨN:\n\nPhương trình mặt phẳng dạng: A(x - x0) + B(y - y0) + C(z - z0) = 0.\nThay số vào ta có: 2(x - 1) - 1(y - 2) + 1(z - 3) = 0 <=> 2x - y + z - 3 = 0." },
+            { id: "01", grade: "Lớp 12", subject: "Ngữ Văn", school: "Sở GD&ĐT Hà Nội", title: "Đề thi thử Tốt nghiệp THPT môn Ngữ Văn cấu trúc mới", content: "I. ĐỌC HIỂU (4.0 điểm): Đọc đoạn trích sau và trả lời câu hỏi...\nII. LÀM VĂN (6.0 điểm):\nCâu 1: Viết đoạn văn nghị luận xã hội về ý chí vượt khó.\nCâu 2: Phân tích một đoạn trích trong tác phẩm trọng tâm...", sol: "GỢI Ý LÀM BÀI ĐẠT ĐIỂM CAO:\n\n1. Phần Đọc hiểu: Trả lời ngắn gọn, đúng trọng tâm từ ngữ ngữ liệu đưa ra.\n2. Nghị luận xã hội: Đảm bảo đủ các bước (Giải thích, Phân tích, Chứng minh, Phản đề, Bài học).\n3. Nghị luận văn học: Đưa ra luận điểm rõ ràng, phân tích sâu sắc nghệ thuật và nội dung." },
+            { id: "01", grade: "Lớp 5", subject: "Toán học / Hình học", school: "Trường Tiểu học Chu Văn An Hà Nội", title: "Đề khảo sát chất lượng cuối học kỳ II - Toán lớp 5", content: "Bài 1: Một hình tam giác có độ dài đáy là 12cm và chiều cao là 8cm. Tính diện tích hình tam giác đó.\nBài 2: Tính chu vi hình tròn có đường kính d = 5dm.", sol: "LỜI GIẢI CHI TIẾT CHO HỌC SINH TIỂU HỌC:\n\nBài 1: Diện tích của hình tam giác là: (Đáy x Chiều cao) : 2 = (12 x 8) : 2 = 48 (cm²).\nBài 2: Chu vi của hình tròn là: Đường kính x 3,14 = 5 x 3,14 = 15,7 (dm)." }
         ];
 
-        // Khởi tạo phần tử giao diện
         const chatBox = document.getElementById('chatBox');
         const userInput = document.getElementById('userInput');
         const sendBtn = document.getElementById('sendBtn');
@@ -148,7 +140,6 @@
         const gradeSelect = document.getElementById('gradeSelect');
         const subjectSelect = document.getElementById('subjectSelect');
         const welcomeText = document.getElementById('welcomeText');
-
         const tabChatBtn = document.getElementById('tabChatBtn');
         const tabDeThiBtn = document.getElementById('tabDeThiBtn');
         const tabChatView = document.getElementById('tabChatView');
@@ -174,84 +165,119 @@
             renderFilteredExams();
         }
 
-        // Tự động kiểm tra để đổi cách xưng hô phù hợp lứa tuổi Tiểu học hoặc Trung học
         function updateWelcomeText() {
             const currentGrade = gradeSelect.value;
             const isPrimary = ["Lớp 1","Lớp 2","Lớp 3","Lớp 4","Lớp 5"].includes(currentGrade);
             if(isPrimary) {
                 welcomeText.innerText = `Chào con! Cô là Xuân Mai. Con hãy dán đề bài hoặc chụp ảnh bài tập môn ${subjectSelect.value} gửi qua đây, cô hướng dẫn con giải thật dễ hiểu nhé! 📑`;
             } else {
-                welcomeText.innerText = `Chào em! Cô là Xuân Mai. Hãy gửi đề bài, ảnh chụp sơ đồ hoặc câu hỏi môn ${subjectSelect.value} lớp học qua đây, cô sẽ hướng dẫn phương pháp tư duy bản chất nhé! 📑`;
+                welcomeText.innerText = `Chào em! Cô là Xuân Mai. Hãy gửi đề bài, ảnh chụp sơ đồ hoặc câu hỏi môn ${subjectSelect.value} qua đây, cô sẽ hướng dẫn phương pháp tư duy bản chất nhé! 📑`;
             }
         }
 
-        // CHUYỂN TAB GÓC TRÊN BÊN PHẢI
         tabChatBtn.addEventListener('click', () => {
-            tabChatBtn.className = "bg-white text-teal-900 px-3 py-1.5 rounded-lg font-bold transition-all shadow-sm";
-            tabDeThiBtn.className = "text-white px-3 py-1.5 rounded-lg font-bold transition-all hover:bg-teal-700/50";
+            tabChatBtn.className = "bg-white text-teal-900 px-2.5 py-1 rounded-lg font-bold transition-all shadow-sm";
+            tabDeThiBtn.className = "text-white px-2.5 py-1 rounded-lg font-bold transition-all hover:bg-teal-700/50";
             tabChatView.classList.remove('hidden'); tabDeThiView.classList.add('hidden');
             inputBarContainer.classList.remove('hidden');
         });
 
         tabDeThiBtn.addEventListener('click', () => {
-            tabDeThiBtn.className = "bg-white text-teal-900 px-3 py-1.5 rounded-lg font-bold transition-all shadow-sm";
-            tabChatBtn.className = "text-white px-3 py-1.5 rounded-lg font-bold transition-all hover:bg-teal-700/50";
+            tabDeThiBtn.className = "bg-white text-teal-900 px-2.5 py-1 rounded-lg font-bold transition-all shadow-sm";
+            tabChatBtn.className = "text-white px-2.5 py-1 rounded-lg font-bold transition-all hover:bg-teal-700/50";
             tabDeThiView.classList.remove('hidden'); tabChatView.classList.add('hidden');
             inputBarContainer.classList.add('hidden');
         });
 
-        // NHẬP LIỆU BẰNG GIỌNG NÓI QUA MICROPHONE
         if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             const recognition = new SpeechRecognition();
             recognition.lang = 'vi-VN';
             recognition.interimResults = false;
             
-            recognition.onstart = () => { 
-                micBtn.innerText = "🛑"; 
-                micBtn.classList.add('bg-rose-100', 'text-rose-600', 'animate-pulse'); 
-            };
-            recognition.onend = () => { 
-                micBtn.innerText = "🎤"; 
-                micBtn.classList.remove('bg-rose-100', 'text-rose-600', 'animate-pulse'); 
-            };
-            recognition.onresult = (event) => { 
-                userInput.value += event.results[0][0].transcript; 
-            };
+            recognition.onstart = () => { micBtn.innerText = "🛑"; micBtn.classList.add('bg-rose-100', 'animate-pulse'); };
+            recognition.onend = () => { micBtn.innerText = "🎤"; micBtn.classList.remove('bg-rose-100', 'animate-pulse'); };
+            recognition.onresult = (event) => { userInput.value += event.results[0][0].transcript; };
             micBtn.addEventListener('click', () => { recognition.start(); });
         } else { 
-            micBtn.title = "Trình duyệt chưa hỗ trợ ghi âm trực tiếp.";
-            micBtn.style.opacity = "0.5";
+            micBtn.style.opacity = "0.4";
         }
 
-        // KẾT XUẤT ĐỀ THI THEO BỘ LỌC
         function renderFilteredExams() {
             examContainer.innerHTML = "";
             const currentGrade = gradeSelect.value;
             const currentSubject = subjectSelect.value;
-
             const filteredList = MASTER_EXAMS_DATABASE.filter(item => item.grade === currentGrade && item.subject === currentSubject);
 
             if(filteredList.length === 0) {
                 examContainer.innerHTML = `
-                    <div class="text-center py-10 bg-white rounded-2xl border border-dashed border-slate-200 p-6">
-                        <div class="text-3xl">📂</div>
-                        <div class="text-xs text-slate-400 mt-2 font-medium">Kho dữ liệu Đề thi & Lời giải môn ${currentSubject} của ${currentGrade} đang được tải dữ liệu bổ sung liên tục...</div>
+                    <div class="text-center py-8 bg-white rounded-2xl border border-dashed border-slate-200 p-4 text-xs text-slate-400 font-medium">
+                        📂 Kho dữ liệu Đề thi & Lời giải môn ${currentSubject} (${currentGrade}) đang được cập nhật liên tục...
                     </div>`;
                 return;
             }
 
             filteredList.forEach(exam => {
                 const card = document.createElement('div');
-                card.className = "bg-white p-4 rounded-2xl shadow-sm border border-slate-200/60 flex flex-col justify-between hover:border-teal-500 transition-all duration-200 group";
+                card.className = "bg-white p-3 rounded-2xl shadow-sm border border-slate-200/60 flex flex-col justify-between";
                 card.innerHTML = `
-                    <div class="flex items-start justify-between gap-4">
-                        <div>
-                            <span class="text-[10px] bg-slate-100 text-slate-500 font-bold px-2 py-0.5 rounded-md uppercase tracking-wider">${exam.subject} - ${exam.grade}</span>
-                            <h3 class="text-sm font-bold text-slate-900 mt-1.5 group-hover:text-teal-600 transition-colors">Đề số ${exam.id}: ${exam.title}</h3>
-                            <p class="text-xs text-slate-400 font-medium mt-1 flex items-center gap-1">🏫 Nguồn: ${exam.school}</p>
-                        </div>
+                    <div>
+                        <span class="text-[9px] bg-slate-100 text-slate-500 font-bold px-1.5 py-0.5 rounded uppercase">${exam.subject}</span>
+                        <h3 class="text-xs font-bold text-slate-900 mt-1">Đề ${exam.id}: ${exam.title}</h3>
+                        <p class="text-[10px] text-slate-400 font-medium mt-0.5">🏫 Nguồn: ${exam.school}</p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-slate-100 flex gap-2">
-                        <button onclick="viewDocContent('Đề thi số ${exam.id}', '${exam.school}', \`${exam.content.replace(/\n/g, '<br>')}\`)" class="flex-1 bg-teal-50 text-teal-700 hover:bg-teal-600 hover:text-white px-3 py-2 rounded-xl text-xs font-bold text-center transition-all">Xem Đề Bài</button>
-                        <button onclick="viewDocContent('Lời giải đề số ${exam.id}', '${exam.s
+                    <div class="mt-3 pt-2 border-t border-slate-100 flex gap-1.5">
+                        <button onclick="viewDocContent('Đề thi số ${exam.id}', '${exam.school}', \`${exam.content.replace(/\n/g, '<br>')}\`)" class="flex-1 bg-teal-50 text-teal-700 px-2 py-1.5 rounded-xl text-xs font-bold text-center">Xem Đề</button>
+                        <button onclick="viewDocContent('Lời giải đề số ${exam.id}', '${exam.school}', \`${exam.sol.replace(/\n/g, '<br>')}\`)" class="flex-1 bg-rose-50 text-rose-700 px-2 py-1.5 rounded-xl text-xs font-bold text-center">Lời Giải</button>
+                    </div>
+                `;
+                examContainer.appendChild(card);
+            });
+        }
+
+        function viewDocContent(title, source, htmlBody) {
+            document.getElementById('docModalTitle').innerText = title;
+            document.getElementById('docModalSubtitle').innerText = "Trích: " + source;
+            document.getElementById('docModalBody').innerHTML = htmlBody;
+            document.getElementById('documentModal').classList.remove('hidden');
+        }
+        function closeDocumentModal() { document.getElementById('documentModal').classList.add('hidden'); }
+        function openApiModal() { document.getElementById('apiModal').classList.remove('hidden'); }
+        function closeApiModal() { document.getElementById('apiModal').classList.add('hidden'); }
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                imageMimeType = file.type;
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    base64Image = event.target.result.split(',')[1];
+                    imagePreview.innerHTML = `
+                        <div class="relative inline-block">
+                            <img src="${event.target.result}" class="h-12 w-12 object-cover rounded-xl border-2 border-teal-500 shadow">
+                            <button onclick="window.clearImage()" class="absolute -top-1.5 -right-1.5 bg-rose-500 text-white rounded-full w-4 h-4 text-[10px] font-bold flex items-center justify-center">×</button>
+                        </div>`;
+                    imagePreview.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        window.clearImage = function() {
+            base64Image = null; imageMimeType = null; fileInput.value = '';
+            imagePreview.innerHTML = ''; imagePreview.classList.add('hidden');
+        }
+
+        sendBtn.addEventListener('click', async () => {
+            const apiKey = apiKeyInput.value.trim();
+            if (!apiKey) { openApiModal(); return; }
+            
+            const text = userInput.value.trim();
+            if (!text && !base64Image) return;
+
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = "bg-slate-800 text-white p-3 rounded-2xl rounded-tr-none ml-auto max-w-[85%] text-sm shadow-sm space-y-1";
+            if(base64Image) userMsgDiv.innerHTML += `<img src="data:${imageMimeType};base64,${base64Image}" class="max-h-36 rounded-xl mb-1 shadow-inner">`;
+            if(text) userMsgDiv.innerHTML += `<div>${text}</div>`;
+            chatBox.appendChild(userMsgDiv);
+ 
