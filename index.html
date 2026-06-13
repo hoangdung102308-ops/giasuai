@@ -7,7 +7,6 @@
     <title>Cô Giáo Xuân Mai AI - Toàn Diện Lớp 1-12</title>
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧑‍🏫</text></svg>">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .custom-scroll::-webkit-scrollbar { width: 4px; }
@@ -26,7 +25,6 @@
     <div class="bg-teal-600 text-white p-3 shadow-md sticky top-0 z-50 rounded-b-2xl border-b border-teal-700">
         <div class="flex justify-between items-center max-w-2xl mx-auto mb-2">
             <h1 class="text-xs font-bold tracking-wide flex items-center gap-1">🧑‍🏫 CÔ GIÁO XUÂN MAI AI</h1>
-            
             <div class="flex bg-teal-800 rounded-xl p-0.5 text-[11px] shadow-inner">
                 <button id="tabChatBtn" class="bg-white text-teal-900 px-2.5 py-1 rounded-lg font-bold transition-all">Lớp Học</button>
                 <button id="tabDeThiBtn" class="text-white px-2.5 py-1 rounded-lg font-bold transition-all">Luyện Đề</button>
@@ -53,7 +51,7 @@
         </div>
         
         <div class="max-w-2xl mx-auto mt-2">
-            <input id="apiKeyInput" type="password" placeholder="Dán mã khóa API Gemini tại đây..." class="w-full p-2 text-xs rounded-xl bg-teal-50 text-slate-900 focus:outline-none shadow-inner border border-teal-500/30" onchange="saveApiKey()">
+            <input id="apiKeyInput" type="password" placeholder="Dán mã khóa API Gemini tại đây..." class="w-full p-2 text-xs rounded-xl bg-teal-50 text-slate-900 focus:outline-none shadow-inner border border-teal-500/30" oninput="saveApiKey()">
         </div>
     </div>
 
@@ -61,15 +59,14 @@
         <div id="tabChatView" class="h-full overflow-y-auto p-4 space-y-4 max-w-2xl w-full mx-auto custom-scroll">
             <div id="chatBox" class="space-y-4 pb-24">
                 <div id="welcomeText" class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm text-sm border-l-4 border-teal-500 leading-relaxed">
-                    Chào em! Cô là Xuân Mai. Hãy gửi đề bài, ảnh chụp sơ đồ hoặc câu hỏi qua đây nhé! 📑
+                    Chào em! Cô là Xuân Mai. Hãy gửi đề bài hoặc câu hỏi qua đây nhé! 📑
                 </div>
             </div>
         </div>
 
         <div id="tabDeThiView" class="h-full overflow-y-auto p-4 max-w-2xl w-full mx-auto hidden custom-scroll pb-10">
             <div class="bg-teal-50 p-3 rounded-xl mb-4 border border-teal-100 flex justify-between items-center text-[11px]">
-                <span class="font-semibold text-teal-800">📚 Nguồn: 60 trường tiêu điểm cả nước (10 năm qua)</span>
-                <span class="bg-teal-600 text-white px-1.5 py-0.5 rounded-full text-[9px] animate-pulse">Live</span>
+                <span class="font-semibold text-teal-800">📚 Nguồn: Các trường tiêu điểm cả nước</span>
             </div>
             <div id="examContainer" class="space-y-3"></div>
         </div>
@@ -82,9 +79,7 @@
             <input id="fileInput" type="file" accept="image/*" class="hidden">
             
             <button id="micBtn" class="bg-slate-100 text-slate-600 p-3 rounded-xl hover:bg-slate-200 text-sm shrink-0 shadow-sm">🎤</button>
-            
             <input id="userInput" type="text" placeholder="Hỏi bài hoặc bấm Mic để nói..." class="flex-1 min-w-0 border border-slate-300 rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:border-teal-500 shadow-inner bg-slate-50 text-slate-900">
-            
             <button id="sendBtn" class="bg-teal-600 text-white p-3 rounded-xl font-bold text-sm hover:bg-teal-700 shadow-md transition-all shrink-0 flex items-center justify-center min-w-[50px]">🚀</button>
         </div>
     </div>
@@ -96,10 +91,10 @@
                 <button onclick="closeApiModal()" class="text-slate-400 hover:text-slate-600 text-lg font-bold">&times;</button>
             </div>
             <div class="text-xs text-slate-600 space-y-2.5 leading-relaxed">
-                <p class="font-semibold text-amber-600 bg-amber-50 p-2 rounded-xl border border-amber-200">📌 Chũ ý: Mã API này hoàn toàn MIỄN PHÍ 100% từ Google.</p>
+                <p class="font-semibold text-amber-600 bg-amber-50 p-2 rounded-xl border border-amber-200">📌 Chú ý: Mã API này hoàn toàn MIỄN PHÍ 100% từ Google.</p>
                 <p><b>Bước 1:</b> Truy cập liên kết: <a href="https://aistudio.google.com/" target="_blank" class="text-teal-600 font-bold underline">Google AI Studio ↗</a></p>
                 <p><b>Bước 2:</b> Đăng nhập tài khoản Gmail của bạn.</p>
-                <p><b>Bước 3:</b> Chọn <b>"Get API Key"</b> ở cột trái -> Chọn tiếp <b>"Create API Key"</b>.</p>
+                <p><b>Bước 3:</b> Chọn <b>"Get API Key"</b> -> Chọn tiếp <b>"Create API Key"</b>.</p>
                 <p><b>Bước 4:</b> Copy đoạn mã hệ thống cấp rồi dán vào ô nhập liệu màu xanh trên app.</p>
             </div>
             <button onclick="closeApiModal()" class="w-full bg-teal-600 text-white p-2 rounded-xl font-bold text-xs shadow">ĐÃ HIỂU</button>
@@ -110,8 +105,8 @@
         <div class="bg-white rounded-2xl max-w-2xl w-full h-[85vh] flex flex-col justify-between shadow-2xl border animate-in fade-in duration-200">
             <div class="bg-slate-50 p-4 border-b rounded-t-2xl flex justify-between items-center">
                 <div>
-                    <h4 id="docModalTitle" class="font-bold text-teal-700 text-sm">Tiêu đề văn bản</h4>
-                    <p id="docModalSubtitle" class="text-[10px] text-slate-400 font-medium mt-0.5">Nguồn trích dẫn</p>
+                    <h4 id="docModalTitle" class="font-bold text-teal-700 text-sm">Tiêu đề</h4>
+                    <p id="docModalSubtitle" class="text-[10px] text-slate-400 font-medium mt-0.5">Nguồn</p>
                 </div>
                 <button onclick="closeDocumentModal()" class="bg-slate-200 text-slate-700 rounded-full w-6 h-6 flex items-center justify-center font-bold text-xs">&times;</button>
             </div>
@@ -125,9 +120,7 @@
     <script>
         const MASTER_EXAMS_DATABASE = [
             { id: "01", grade: "Lớp 12", subject: "Toán học / Hình học", school: "Trường THPT Chuyên Khoa Học Tự Nhiên Hà Nội", title: "Đề thi thử Tốt nghiệp THPT Quốc Gia - Hình Học Không Gian", content: "Câu 1: Cho khối chóp S.ABCD có đáy là hình vuông cạnh a, cạnh bên SA vuông góc với đáy. Tính thể tích khối chóp biết SA = a*căn 3.\nCâu 2: Trong không gian Oxyz, tìm tọa độ tâm I của mặt cầu...", sol: "HƯỚNG DẪN GIẢI ĐỀ CHI TIẾT:\n\nCâu 1: Diện tích hình vuông đáy S = a^2. Chiều cao h = SA = a*căn 3. Công thức tính thể tích khối chóp là: V = 1/3 * S * h = (a^3 * căn 3) / 3.\nCâu 2: Biến đổi phương trình mặt cầu về dạng chuẩn để suy ra tâm I." },
-            { id: "02", grade: "Lớp 12", subject: "Toán học / Hình học", school: "Trường THPT Chuyên Lê Hồng Phong TP.HCM", title: "Đề khảo sát chuyên đề Hình học giải tích không gian Oxyz", content: "Câu 1: Viết phương trình mặt phẳng đi qua điểm A(1;2;3) và nhận vectơ n(2;-1;1) làm vectơ pháp tuyến.", sol: "LỜI GIẢI TIÊU CHUẨN:\n\nPhương trình mặt phẳng dạng: A(x - x0) + B(y - y0) + C(z - z0) = 0.\nThay số vào ta có: 2(x - 1) - 1(y - 2) + 1(z - 3) = 0 <=> 2x - y + z - 3 = 0." },
-            { id: "01", grade: "Lớp 12", subject: "Ngữ Văn", school: "Sở GD&ĐT Hà Nội", title: "Đề thi thử Tốt nghiệp THPT môn Ngữ Văn cấu trúc mới", content: "I. ĐỌC HIỂU (4.0 điểm): Đọc đoạn trích sau và trả lời câu hỏi...\nII. LÀM VĂN (6.0 điểm):\nCâu 1: Viết đoạn văn nghị luận xã hội về ý chí vượt khó.\nCâu 2: Phân tích một đoạn trích trong tác phẩm trọng tâm...", sol: "GỢI Ý LÀM BÀI ĐẠT ĐIỂM CAO:\n\n1. Phần Đọc hiểu: Trả lời ngắn gọn, đúng trọng tâm từ ngữ ngữ liệu đưa ra.\n2. Nghị luận xã hội: Đảm bảo đủ các bước (Giải thích, Phân tích, Chứng minh, Phản đề, Bài học).\n3. Nghị luận văn học: Đưa ra luận điểm rõ ràng, phân tích sâu sắc nghệ thuật và nội dung." },
-            { id: "01", grade: "Lớp 5", subject: "Toán học / Hình học", school: "Trường Tiểu học Chu Văn An Hà Nội", title: "Đề khảo sát chất lượng cuối học kỳ II - Toán lớp 5", content: "Bài 1: Một hình tam giác có độ dài đáy là 12cm và chiều cao là 8cm. Tính diện tích hình tam giác đó.\nBài 2: Tính chu vi hình tròn có đường kính d = 5dm.", sol: "LỜI GIẢI CHI TIẾT CHO HỌC SINH TIỂU HỌC:\n\nBài 1: Diện tích của hình tam giác là: (Đáy x Chiều cao) : 2 = (12 x 8) : 2 = 48 (cm²).\nBài 2: Chu vi của hình tròn là: Đường kính x 3,14 = 5 x 3,14 = 15,7 (dm)." }
+            { id: "01", grade: "Lớp 12", subject: "Ngữ Văn", school: "Sở GD&ĐT Hà Nội", title: "Đề thi thử Tốt nghiệp THPT môn Ngữ Văn cấu trúc mới", content: "I. ĐỌC HIỂU (4.0 điểm): Đọc đoạn trích sau và trả lời câu hỏi...\nII. LÀM VĂN (6.0 điểm):\nCâu 1: Viết đoạn văn nghị luận xã hội về ý chí vượt khó.\nCâu 2: Phân tích một đoạn trích trong tác phẩm trọng tâm...", sol: "GỢI Ý LÀM BÀI:\n1. Phần Đọc hiểu: Trả lời ngắn gọn, đúng trọng tâm.\n2. Nghị luận xã hội: Đảm bảo đủ các bước.\n3. Nghị luận văn học: Đưa ra luận điểm rõ ràng." }
         ];
 
         const chatBox = document.getElementById('chatBox');
@@ -150,14 +143,18 @@
         let base64Image = null; let imageMimeType = null;
 
         window.onload = () => { 
-            if(localStorage.getItem('user_gemini_key')) {
-                apiKeyInput.value = localStorage.getItem('user_gemini_key');
-            }
+            try {
+                if(localStorage.getItem('user_gemini_key')) {
+                    apiKeyInput.value = localStorage.getItem('user_gemini_key');
+                }
+            } catch(e) { console.log("LocalStorage bị chặn"); }
             onFilterChange();
         }
         
         function saveApiKey() { 
-            localStorage.setItem('user_gemini_key', apiKeyInput.value.trim()); 
+            try {
+                localStorage.setItem('user_gemini_key', apiKeyInput.value.trim()); 
+            } catch(e) {}
         }
 
         function onFilterChange() {
@@ -169,9 +166,9 @@
             const currentGrade = gradeSelect.value;
             const isPrimary = ["Lớp 1","Lớp 2","Lớp 3","Lớp 4","Lớp 5"].includes(currentGrade);
             if(isPrimary) {
-                welcomeText.innerText = `Chào con! Cô là Xuân Mai. Con hãy dán đề bài hoặc chụp ảnh bài tập môn ${subjectSelect.value} gửi qua đây, cô hướng dẫn con giải thật dễ hiểu nhé! 📑`;
+                welcomeText.innerText = `Chào con! Cô là Xuân Mai. Con hãy dán đề bài hoặc chụp ảnh bài tập môn ${subjectSelect.value} gửi qua đây nhé! 📑`;
             } else {
-                welcomeText.innerText = `Chào em! Cô là Xuân Mai. Hãy gửi đề bài, ảnh chụp sơ đồ hoặc câu hỏi môn ${subjectSelect.value} qua đây, cô sẽ hướng dẫn phương pháp tư duy bản chất nhé! 📑`;
+                welcomeText.innerText = `Chào em! Cô là Xuân Mai. Hãy gửi đề bài, ảnh chụp sơ đồ hoặc câu hỏi môn ${subjectSelect.value} qua đây nhé! 📑`;
             }
         }
 
@@ -210,10 +207,7 @@
             const filteredList = MASTER_EXAMS_DATABASE.filter(item => item.grade === currentGrade && item.subject === currentSubject);
 
             if(filteredList.length === 0) {
-                examContainer.innerHTML = `
-                    <div class="text-center py-8 bg-white rounded-2xl border border-dashed border-slate-200 p-4 text-xs text-slate-400 font-medium">
-                        📂 Kho dữ liệu Đề thi & Lời giải môn ${currentSubject} (${currentGrade}) đang được cập nhật liên tục...
-                    </div>`;
+                examContainer.innerHTML = `<div class="text-center py-8 bg-white rounded-2xl border border-dashed border-slate-200 p-4 text-xs text-slate-400 font-medium">📂 Kho dữ liệu Đề thi môn ${currentSubject} (${currentGrade}) đang được cập nhật...</div>`;
                 return;
             }
 
@@ -223,14 +217,13 @@
                 card.innerHTML = `
                     <div>
                         <span class="text-[9px] bg-slate-100 text-slate-500 font-bold px-1.5 py-0.5 rounded uppercase">${exam.subject}</span>
-                        <h3 class="text-xs font-bold text-slate-900 mt-1">Đề ${exam.id}: ${exam.title}</h3>
+                        <h3 class="text-xs font-bold text-slate-900 mt-1">${exam.title}</h3>
                         <p class="text-[10px] text-slate-400 font-medium mt-0.5">🏫 Nguồn: ${exam.school}</p>
                     </div>
                     <div class="mt-3 pt-2 border-t border-slate-100 flex gap-1.5">
-                        <button onclick="viewDocContent('Đề thi số ${exam.id}', '${exam.school}', \`${exam.content.replace(/\n/g, '<br>')}\`)" class="flex-1 bg-teal-50 text-teal-700 px-2 py-1.5 rounded-xl text-xs font-bold text-center">Xem Đề</button>
-                        <button onclick="viewDocContent('Lời giải đề số ${exam.id}', '${exam.school}', \`${exam.sol.replace(/\n/g, '<br>')}\`)" class="flex-1 bg-rose-50 text-rose-700 px-2 py-1.5 rounded-xl text-xs font-bold text-center">Lời Giải</button>
-                    </div>
-                `;
+                        <button onclick="viewDocContent('Đề thi', '${exam.school}', \`${exam.content.replace(/\n/g, '<br>')}\`)" class="flex-1 bg-teal-50 text-teal-700 px-2 py-1.5 rounded-xl text-xs font-bold text-center">Xem Đề</button>
+                        <button onclick="viewDocContent('Lời giải', '${exam.school}', \`${exam.sol.replace(/\n/g, '<br>')}\`)" class="flex-1 bg-rose-50 text-rose-700 px-2 py-1.5 rounded-xl text-xs font-bold text-center">Lời Giải</button>
+                    </div>`;
                 examContainer.appendChild(card);
             });
         }
@@ -272,6 +265,9 @@
             const apiKey = apiKeyInput.value.trim();
             if (!apiKey) { openApiModal(); return; }
             
+            // Ép hệ thống lưu lại khóa ngay lập tức khi bấm nút gửi bài
+            saveApiKey();
+
             const text = userInput.value.trim();
             if (!text && !base64Image) return;
 
@@ -280,4 +276,24 @@
             if(base64Image) userMsgDiv.innerHTML += `<img src="data:${imageMimeType};base64,${base64Image}" class="max-h-36 rounded-xl mb-1 shadow-inner">`;
             if(text) userMsgDiv.innerHTML += `<div>${text}</div>`;
             chatBox.appendChild(userMsgDiv);
- 
+            tabChatView.scrollTop = tabChatView.scrollHeight;
+
+            const tempText = text; const tempBase64 = base64Image; const tempMime = imageMimeType;
+            userInput.value = ''; window.clearImage();
+
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = "bg-white p-3 rounded-2xl rounded-tl-none max-w-[85%] text-xs italic text-slate-400 shadow-sm border border-slate-100 flex items-center gap-2";
+            loadingDiv.innerHTML = `<span class="w-1.5 h-1.5 bg-teal-500 rounded-full animate-ping"></span> Cô Xuân Mai đang xử lý dữ liệu...`;
+            chatBox.appendChild(loadingDiv);
+            tabChatView.scrollTop = tabChatView.scrollHeight;
+
+            const grade = gradeSelect.value;
+            const subject = subjectSelect.value;
+            const isPrimary = ["Lớp 1","Lớp 2","Lớp 3","Lớp 4","Lớp 5"].includes(grade);
+            const pronoun = isPrimary ? "con" : "em";
+            
+            const systemPrompt = `Bạn là cô giáo tên là Xuân Mai, giảng dạy môn ${subject} cho lớp ${grade}. Xưng "cô" và gọi học sinh là "${pronoun}". Giải bài tập ngắn gọn, chính xác, bám sát sách giáo khoa. Trình bày rõ phương pháp và lời giải chi tiết.`;
+
+            try {
+                const contentsParts = [{ text: `Đề bài: ${tempText || "Giải bài tập trong ảnh dựa trên môn học cấu hình."}` }];
+                if (tem
